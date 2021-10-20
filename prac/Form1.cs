@@ -44,7 +44,7 @@ namespace prac
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         
@@ -52,6 +52,9 @@ namespace prac
         private void Exit_btn_Click(object sender, EventArgs e)
         {
             this.Close();
+            Form2 frm = new Form2();
+            frm.Show();
+            
         }
     }
 }

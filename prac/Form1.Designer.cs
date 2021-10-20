@@ -29,19 +29,19 @@ namespace prac
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelAll = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.text비고 = new System.Windows.Forms.TextBox();
+            this.text교환주기 = new System.Windows.Forms.TextBox();
+            this.textSize = new System.Windows.Forms.TextBox();
+            this.textName = new System.Windows.Forms.TextBox();
+            this.textCode = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.Search_btn = new System.Windows.Forms.Button();
@@ -82,11 +82,11 @@ namespace prac
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.label2);
-            this.panel3.Controls.Add(this.textBox6);
-            this.panel3.Controls.Add(this.textBox5);
-            this.panel3.Controls.Add(this.textBox4);
-            this.panel3.Controls.Add(this.textBox3);
-            this.panel3.Controls.Add(this.textBox2);
+            this.panel3.Controls.Add(this.text비고);
+            this.panel3.Controls.Add(this.text교환주기);
+            this.panel3.Controls.Add(this.textSize);
+            this.panel3.Controls.Add(this.textName);
+            this.panel3.Controls.Add(this.textCode);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Location = new System.Drawing.Point(3, 39);
             this.panel3.Name = "panel3";
@@ -133,40 +133,40 @@ namespace prac
             this.label2.Text = "교환주기";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox6
+            // text비고
             // 
-            this.textBox6.Location = new System.Drawing.Point(141, 147);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(659, 23);
-            this.textBox6.TabIndex = 7;
+            this.text비고.Location = new System.Drawing.Point(141, 147);
+            this.text비고.Name = "text비고";
+            this.text비고.Size = new System.Drawing.Size(659, 23);
+            this.text비고.TabIndex = 7;
             // 
-            // textBox5
+            // text교환주기
             // 
-            this.textBox5.Location = new System.Drawing.Point(141, 117);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(86, 23);
-            this.textBox5.TabIndex = 6;
+            this.text교환주기.Location = new System.Drawing.Point(141, 117);
+            this.text교환주기.Name = "text교환주기";
+            this.text교환주기.Size = new System.Drawing.Size(86, 23);
+            this.text교환주기.TabIndex = 6;
             // 
-            // textBox4
+            // textSize
             // 
-            this.textBox4.Location = new System.Drawing.Point(141, 86);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(237, 23);
-            this.textBox4.TabIndex = 5;
+            this.textSize.Location = new System.Drawing.Point(141, 86);
+            this.textSize.Name = "textSize";
+            this.textSize.Size = new System.Drawing.Size(237, 23);
+            this.textSize.TabIndex = 5;
             // 
-            // textBox3
+            // textName
             // 
-            this.textBox3.Location = new System.Drawing.Point(141, 50);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(237, 23);
-            this.textBox3.TabIndex = 2;
+            this.textName.Location = new System.Drawing.Point(141, 50);
+            this.textName.Name = "textName";
+            this.textName.Size = new System.Drawing.Size(237, 23);
+            this.textName.TabIndex = 2;
             // 
-            // textBox2
+            // textCode
             // 
-            this.textBox2.Location = new System.Drawing.Point(141, 21);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(86, 23);
-            this.textBox2.TabIndex = 2;
+            this.textCode.Location = new System.Drawing.Point(141, 21);
+            this.textCode.Name = "textCode";
+            this.textCode.Size = new System.Drawing.Size(86, 23);
+            this.textCode.TabIndex = 2;
             // 
             // label6
             // 
@@ -216,14 +216,14 @@ namespace prac
             this.GridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.GridView.BackgroundColor = System.Drawing.Color.White;
             this.GridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(239)))), ((int)(((byte)(235)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(181)))), ((int)(((byte)(189)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.GridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(239)))), ((int)(((byte)(235)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(181)))), ((int)(((byte)(189)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.GridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.GridView.ColumnHeadersHeight = 30;
             this.GridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -236,10 +236,10 @@ namespace prac
             this.GridView.Name = "GridView";
             this.GridView.ReadOnly = true;
             this.GridView.RowHeadersVisible = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            this.GridView.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            this.GridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.GridView.RowTemplate.Height = 23;
             this.GridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.GridView.Size = new System.Drawing.Size(358, 305);
@@ -368,11 +368,11 @@ namespace prac
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textName;
+        private System.Windows.Forms.TextBox textCode;
+        private System.Windows.Forms.TextBox text비고;
+        private System.Windows.Forms.TextBox text교환주기;
+        private System.Windows.Forms.TextBox textSize;
         private System.Windows.Forms.Button Search_btn;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
