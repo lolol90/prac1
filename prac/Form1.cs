@@ -10,12 +10,48 @@ using System.Windows.Forms;
 
 namespace prac
 {
-    public partial class Form1 : Form
+    public partial class Form장비등록 : Form
     {
-        public Form1()
+        public Form장비등록()
         {
             InitializeComponent();
         }
 
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void save_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void delete_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        
+
+        private void Exit_btn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
