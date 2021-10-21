@@ -71,7 +71,7 @@ namespace prac
             this.panelAll.Controls.Add(this.panelTitle);
             this.panelAll.Location = new System.Drawing.Point(2, 2);
             this.panelAll.Name = "panelAll";
-            this.panelAll.Size = new System.Drawing.Size(1535, 583);
+            this.panelAll.Size = new System.Drawing.Size(1482, 623);
             this.panelAll.TabIndex = 0;
             // 
             // panel3
@@ -88,17 +88,17 @@ namespace prac
             this.panel3.Controls.Add(this.textName);
             this.panel3.Controls.Add(this.textCode);
             this.panel3.Controls.Add(this.label6);
-            this.panel3.Location = new System.Drawing.Point(3, 39);
+            this.panel3.Location = new System.Drawing.Point(10, 66);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(991, 519);
+            this.panel3.Size = new System.Drawing.Size(938, 519);
             this.panel3.TabIndex = 76;
             // 
             // label5
             // 
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(214)))), ((int)(((byte)(249)))));
-            this.label5.Location = new System.Drawing.Point(7, 21);
+            this.label5.Location = new System.Drawing.Point(7, 25);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(128, 20);
+            this.label5.Size = new System.Drawing.Size(128, 32);
             this.label5.TabIndex = 79;
             this.label5.Text = "코드";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -106,9 +106,9 @@ namespace prac
             // label4
             // 
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(214)))), ((int)(((byte)(249)))));
-            this.label4.Location = new System.Drawing.Point(7, 50);
+            this.label4.Location = new System.Drawing.Point(7, 67);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(128, 20);
+            this.label4.Size = new System.Drawing.Size(128, 32);
             this.label4.TabIndex = 78;
             this.label4.Text = "장비명";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -116,9 +116,9 @@ namespace prac
             // label3
             // 
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(214)))), ((int)(((byte)(249)))));
-            this.label3.Location = new System.Drawing.Point(7, 86);
+            this.label3.Location = new System.Drawing.Point(7, 112);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(128, 20);
+            this.label3.Size = new System.Drawing.Size(128, 32);
             this.label3.TabIndex = 77;
             this.label3.Text = "규격";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -126,54 +126,54 @@ namespace prac
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(214)))), ((int)(((byte)(249)))));
-            this.label2.Location = new System.Drawing.Point(7, 117);
+            this.label2.Location = new System.Drawing.Point(7, 157);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(128, 20);
+            this.label2.Size = new System.Drawing.Size(128, 32);
             this.label2.TabIndex = 76;
             this.label2.Text = "교환주기";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // text비고
             // 
-            this.text비고.Location = new System.Drawing.Point(141, 147);
+            this.text비고.Location = new System.Drawing.Point(151, 198);
             this.text비고.Name = "text비고";
-            this.text비고.Size = new System.Drawing.Size(659, 23);
+            this.text비고.Size = new System.Drawing.Size(659, 31);
             this.text비고.TabIndex = 7;
             // 
             // text교환주기
             // 
-            this.text교환주기.Location = new System.Drawing.Point(141, 117);
+            this.text교환주기.Location = new System.Drawing.Point(151, 157);
             this.text교환주기.Name = "text교환주기";
-            this.text교환주기.Size = new System.Drawing.Size(86, 23);
+            this.text교환주기.Size = new System.Drawing.Size(86, 31);
             this.text교환주기.TabIndex = 6;
             // 
             // textSize
             // 
-            this.textSize.Location = new System.Drawing.Point(141, 86);
+            this.textSize.Location = new System.Drawing.Point(151, 113);
             this.textSize.Name = "textSize";
-            this.textSize.Size = new System.Drawing.Size(237, 23);
+            this.textSize.Size = new System.Drawing.Size(237, 31);
             this.textSize.TabIndex = 5;
             // 
             // textName
             // 
-            this.textName.Location = new System.Drawing.Point(141, 50);
+            this.textName.Location = new System.Drawing.Point(151, 67);
             this.textName.Name = "textName";
-            this.textName.Size = new System.Drawing.Size(237, 23);
+            this.textName.Size = new System.Drawing.Size(237, 31);
             this.textName.TabIndex = 2;
             // 
             // textCode
             // 
-            this.textCode.Location = new System.Drawing.Point(141, 21);
+            this.textCode.Location = new System.Drawing.Point(151, 25);
             this.textCode.Name = "textCode";
-            this.textCode.Size = new System.Drawing.Size(86, 23);
+            this.textCode.Size = new System.Drawing.Size(86, 31);
             this.textCode.TabIndex = 2;
             // 
             // label6
             // 
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(214)))), ((int)(((byte)(249)))));
-            this.label6.Location = new System.Drawing.Point(7, 147);
+            this.label6.Location = new System.Drawing.Point(7, 198);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(128, 20);
+            this.label6.Size = new System.Drawing.Size(128, 32);
             this.label6.TabIndex = 75;
             this.label6.Text = "비고";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -183,25 +183,25 @@ namespace prac
             this.panel2.Controls.Add(this.Search_btn);
             this.panel2.Controls.Add(this.textBox1);
             this.panel2.Controls.Add(this.GridView);
-            this.panel2.Location = new System.Drawing.Point(1000, 39);
+            this.panel2.Location = new System.Drawing.Point(1000, 66);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(377, 519);
             this.panel2.TabIndex = 1;
             // 
             // Search_btn
             // 
-            this.Search_btn.Location = new System.Drawing.Point(246, 15);
+            this.Search_btn.Location = new System.Drawing.Point(246, 39);
             this.Search_btn.Name = "Search_btn";
-            this.Search_btn.Size = new System.Drawing.Size(75, 23);
+            this.Search_btn.Size = new System.Drawing.Size(75, 31);
             this.Search_btn.TabIndex = 2;
             this.Search_btn.Text = "검색";
             this.Search_btn.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(3, 16);
+            this.textBox1.Location = new System.Drawing.Point(3, 39);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(237, 23);
+            this.textBox1.Size = new System.Drawing.Size(237, 31);
             this.textBox1.TabIndex = 1;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -232,10 +232,11 @@ namespace prac
             this.Column4});
             this.GridView.EnableHeadersVisualStyles = false;
             this.GridView.GridColor = System.Drawing.Color.PowderBlue;
-            this.GridView.Location = new System.Drawing.Point(3, 42);
+            this.GridView.Location = new System.Drawing.Point(3, 86);
             this.GridView.Name = "GridView";
             this.GridView.ReadOnly = true;
             this.GridView.RowHeadersVisible = false;
+            this.GridView.RowHeadersWidth = 62;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
@@ -249,24 +250,28 @@ namespace prac
             // Column1
             // 
             this.Column1.HeaderText = "코드";
+            this.Column1.MinimumWidth = 8;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "명칭";
+            this.Column2.MinimumWidth = 8;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "규격";
+            this.Column3.MinimumWidth = 8;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             // 
             // Column4
             // 
             this.Column4.HeaderText = "비고";
+            this.Column4.MinimumWidth = 8;
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             // 
@@ -281,14 +286,14 @@ namespace prac
             this.panelTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitle.Location = new System.Drawing.Point(0, 0);
             this.panelTitle.Name = "panelTitle";
-            this.panelTitle.Size = new System.Drawing.Size(1535, 34);
+            this.panelTitle.Size = new System.Drawing.Size(1482, 45);
             this.panelTitle.TabIndex = 1;
             // 
             // Exit_btn
             // 
             this.Exit_btn.Location = new System.Drawing.Point(1302, 5);
             this.Exit_btn.Name = "Exit_btn";
-            this.Exit_btn.Size = new System.Drawing.Size(75, 23);
+            this.Exit_btn.Size = new System.Drawing.Size(75, 31);
             this.Exit_btn.TabIndex = 81;
             this.Exit_btn.Text = "닫기";
             this.Exit_btn.UseVisualStyleBackColor = true;
@@ -308,7 +313,7 @@ namespace prac
             // 
             this.delete_btn.Location = new System.Drawing.Point(952, 4);
             this.delete_btn.Name = "delete_btn";
-            this.delete_btn.Size = new System.Drawing.Size(75, 27);
+            this.delete_btn.Size = new System.Drawing.Size(75, 31);
             this.delete_btn.TabIndex = 2;
             this.delete_btn.Text = "삭제";
             this.delete_btn.UseVisualStyleBackColor = true;
@@ -318,7 +323,7 @@ namespace prac
             // 
             this.save_btn.Location = new System.Drawing.Point(871, 4);
             this.save_btn.Name = "save_btn";
-            this.save_btn.Size = new System.Drawing.Size(75, 27);
+            this.save_btn.Size = new System.Drawing.Size(75, 31);
             this.save_btn.TabIndex = 1;
             this.save_btn.Text = "저장";
             this.save_btn.UseVisualStyleBackColor = true;
@@ -328,7 +333,7 @@ namespace prac
             // 
             this.button1.Location = new System.Drawing.Point(790, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 28);
+            this.button1.Size = new System.Drawing.Size(75, 31);
             this.button1.TabIndex = 0;
             this.button1.Text = "신규";
             this.button1.UseVisualStyleBackColor = true;
@@ -338,7 +343,7 @@ namespace prac
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1414, 562);
+            this.ClientSize = new System.Drawing.Size(1545, 665);
             this.Controls.Add(this.panelAll);
             this.KeyPreview = true;
             this.Name = "Form장비등록";

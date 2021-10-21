@@ -1,4 +1,6 @@
-﻿using System;
+﻿using smartMain;
+using smartMain.CLS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,8 +14,15 @@ namespace prac
 {
     public partial class Form장비등록 : Form
     {
-        public Form장비등록() => this.InitializeComponent();
+       
 
+        public Form장비등록(){
+           this.InitializeComponent();
+            Common.p_strConn = "DATA SOURCE = " + "218.38.14.33,14332".ToString()
+                 + ";INITIAL CATALOG = " + "test".ToString()
+                 + ";PERSIST SECURITY INFO = false;USER ID = " +"sa".ToString()
+                 + ";PASSWORD = " + "##wkdxj123".ToString() + ";";
+                }
 
         
 
