@@ -4,9 +4,7 @@
 // MVID: D2CC3615-8674-4A2E-AE78-B541A9F4EDDB
 // Assembly location: E:\Work\smart 장터지기\smartMain.exe
 
-using Microsoft.Office.Interop.Excel;
-using smartMain.Controls;
-using smartMain.팝업;
+
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -36,6 +34,7 @@ namespace smartMain.CLS
         private SqlDataAdapter adoAdapter = new SqlDataAdapter();
         private System.Data.DataTable adoTable = new System.Data.DataTable();
         private DataRow adoRow;
+        private object conTextNumber;
 
         [DllImport("imm32.dll")]
         private static extern IntPtr ImmGetDefaultIMEWnd(IntPtr hWnd);
@@ -55,243 +54,11 @@ namespace smartMain.CLS
             return wnGConstant.SendMessage(wnGConstant.ImmGetDefaultIMEWnd(process.MainWindowHandle), 643U, new IntPtr(5), new IntPtr(0)).ToInt32() != 0 ? 1 : 0;
         }
 
-        public void call_popRef_Cust_중상만(
-          string sTxt,
-          System.Windows.Forms.TextBox txt_Code,
-          System.Windows.Forms.TextBox txt_Name,
-          string sInOut,
-          string aAllFlg,
-          string sUsedYN)
-        {
-            pop거래처검색 pop거래처검색 = new pop거래처검색();
-            pop거래처검색.sInOut = sInOut;
-            pop거래처검색.aAllFlg = aAllFlg;
-            pop거래처검색.sUsedYN = sUsedYN;
-            pop거래처검색.nowTextSelect.Text = sTxt;
-            pop거래처검색.s중상여부 = "중상만";
-            int num = (int)pop거래처검색.ShowDialog();
-            if (pop거래처검색.sRetCode != "")
-            {
-                txt_Code.Text = pop거래처검색.sRetCode;
-                txt_Name.Text = pop거래처검색.sRetName;
-            }
-            pop거래처검색.Dispose();
-        }
+        
 
-        public void call_popRef_Cust_중상제외(
-          string sTxt,
-          System.Windows.Forms.TextBox txt_Code,
-          System.Windows.Forms.TextBox txt_Name,
-          string sInOut,
-          string aAllFlg,
-          string sUsedYN)
-        {
-            pop거래처검색 pop거래처검색 = new pop거래처검색();
-            pop거래처검색.sInOut = sInOut;
-            pop거래처검색.aAllFlg = aAllFlg;
-            pop거래처검색.sUsedYN = sUsedYN;
-            pop거래처검색.nowTextSelect.Text = sTxt;
-            pop거래처검색.s중상여부 = "중상제외";
-            int num = (int)pop거래처검색.ShowDialog();
-            if (pop거래처검색.sRetCode != "")
-            {
-                txt_Code.Text = pop거래처검색.sRetCode;
-                txt_Name.Text = pop거래처검색.sRetName;
-            }
-            pop거래처검색.Dispose();
-        }
 
-        public void call_popRef_Cust(
-          string sTxt,
-          System.Windows.Forms.TextBox txt_Code,
-          System.Windows.Forms.TextBox txt_Name,
-          string sInOut,
-          string aAllFlg,
-          string sUsedYN)
-        {
-            pop거래처검색 pop거래처검색 = new pop거래처검색();
-            pop거래처검색.sInOut = sInOut;
-            pop거래처검색.aAllFlg = aAllFlg;
-            pop거래처검색.sUsedYN = sUsedYN;
-            pop거래처검색.nowTextSelect.Text = sTxt;
-            int num = (int)pop거래처검색.ShowDialog();
-            if (pop거래처검색.sRetCode != "")
-            {
-                txt_Code.Text = pop거래처검색.sRetCode;
-                txt_Name.Text = pop거래처검색.sRetName;
-            }
-            pop거래처검색.Dispose();
-        }
 
-        public void call_popRef_Cust_사입처(
-          string sTxt,
-          System.Windows.Forms.TextBox txt_Code,
-          System.Windows.Forms.TextBox txt_Name,
-          string sInOut,
-          string aAllFlg,
-          string sUsedYN)
-        {
-            pop거래처검색 pop거래처검색 = new pop거래처검색();
-            pop거래처검색.sInOut = sInOut;
-            pop거래처검색.aAllFlg = aAllFlg;
-            pop거래처검색.sUsedYN = sUsedYN;
-            pop거래처검색.nowTextSelect.Text = sTxt;
-            pop거래처검색.b사입처 = true;
-            int num = (int)pop거래처검색.ShowDialog();
-            if (pop거래처검색.sRetCode != "")
-            {
-                txt_Code.Text = pop거래처검색.sRetCode;
-                txt_Name.Text = pop거래처검색.sRetName;
-            }
-            pop거래처검색.Dispose();
-        }
-
-        public void call_popRef_Cust_계산서여부(
-          string sTxt,
-          System.Windows.Forms.TextBox txt_Code,
-          System.Windows.Forms.TextBox txt_Name,
-          string sInOut,
-          string aAllFlg,
-          string sUsedYN)
-        {
-            pop거래처검색 pop거래처검색 = new pop거래처검색();
-            pop거래처검색.s계산서여부 = "Y";
-            pop거래처검색.sInOut = sInOut;
-            pop거래처검색.aAllFlg = aAllFlg;
-            pop거래처검색.sUsedYN = sUsedYN;
-            pop거래처검색.nowTextSelect.Text = sTxt;
-            int num = (int)pop거래처검색.ShowDialog();
-            if (pop거래처검색.sRetCode != "")
-            {
-                txt_Code.Text = pop거래처검색.sRetCode;
-                txt_Name.Text = pop거래처검색.sRetName;
-            }
-            pop거래처검색.Dispose();
-        }
-
-        public void call_popRef_Prod(string sTxt, System.Windows.Forms.TextBox txt_Code, System.Windows.Forms.TextBox txt_Name, string sUsedYN)
-        {
-            pop상품검색 pop상품검색 = new pop상품검색();
-            pop상품검색.sUsedYN = sUsedYN;
-            int num = (int)pop상품검색.ShowDialog();
-            if (!(pop상품검색.sRetCode != ""))
-                return;
-            txt_Code.Text = pop상품검색.sRetCode;
-            txt_Name.Text = pop상품검색.sRetName;
-        }
-
-        public void call_popRef_Acct(string sTxt, System.Windows.Forms.TextBox txt_Code, System.Windows.Forms.TextBox txt_Name)
-        {
-            pop계정검색 pop계정검색 = new pop계정검색();
-            int num = (int)pop계정검색.ShowDialog();
-            if (!(pop계정검색.sRetCode != ""))
-                return;
-            txt_Code.Text = pop계정검색.sRetCode;
-            txt_Name.Text = pop계정검색.sRetName;
-        }
-
-        public void call_popRef_Equip(string sTxt, System.Windows.Forms.TextBox txt_Code, System.Windows.Forms.TextBox txt_Name)
-        {
-            pop장비검색 pop장비검색 = new pop장비검색();
-            pop장비검색.nowTextSelect.Text = sTxt;
-            int num = (int)pop장비검색.ShowDialog();
-            if (pop장비검색.sRetCode != "")
-            {
-                txt_Code.Text = pop장비검색.sRetCode;
-                txt_Name.Text = pop장비검색.sRetName;
-            }
-            pop장비검색.Dispose();
-        }
-
-        public void call_pop_Cust(string sTxt, System.Windows.Forms.TextBox txt_Code, System.Windows.Forms.TextBox txt_Name)
-        {
-            pop거래처검색 pop거래처검색 = new pop거래처검색();
-            pop거래처검색.nowTextSelect.Text = sTxt;
-            pop거래처검색.sUsedYN = "0";
-            int num = (int)pop거래처검색.ShowDialog();
-            if (!(pop거래처검색.sRetCode != ""))
-                return;
-            txt_Code.Text = pop거래처검색.sRetCode;
-            txt_Name.Text = pop거래처검색.sRetName;
-        }
-
-        public void call_pop_Prod(
-          DataGridView dgv,
-          int nRow,
-          string sTxt,
-          string sCust,
-          string sGubun,
-          int nColCode,
-          int nColName,
-          string sUsedYN)
-        {
-            pop상품검색 pop상품검색 = new pop상품검색();
-            pop상품검색.sUsedYN = sUsedYN;
-            pop상품검색.sCustCode = sCust;
-            pop상품검색.sCustGubun = sGubun;
-            pop상품검색.nowTextSelect.Text = sTxt;
-            int num = (int)pop상품검색.ShowDialog();
-            if (!(pop상품검색.sRetCode != ""))
-                return;
-            dgv.Rows[nRow].Cells[nColCode].Value = (object)pop상품검색.sRetCode;
-            dgv.Rows[nRow].Cells[nColName].Value = (object)pop상품검색.sRetName;
-        }
-
-        public void call_pop_Prod_창고이동(
-          DataGridView dgv,
-          int nRow,
-          string sTxt,
-          int nColCode,
-          int nColName,
-          string sUsedYN)
-        {
-            pop상품검색 pop상품검색 = new pop상품검색();
-            pop상품검색.sUsedYN = sUsedYN;
-            pop상품검색.nowTextSelect.Text = sTxt;
-            int num = (int)pop상품검색.ShowDialog();
-            if (!(pop상품검색.sRetCode != ""))
-                return;
-            dgv.Rows[nRow].Cells[nColCode].Value = (object)pop상품검색.sRetCode;
-            dgv.Rows[nRow].Cells[nColName].Value = (object)pop상품검색.sRetName;
-        }
-
-        public void call_pop_Prod(string sTxt, System.Windows.Forms.TextBox txt_Code, System.Windows.Forms.TextBox txt_Name, string sUsedYN)
-        {
-            pop상품검색 pop상품검색 = new pop상품검색();
-            pop상품검색.sUsedYN = sUsedYN;
-            pop상품검색.nowTextSelect.Text = sTxt;
-            int num = (int)pop상품검색.ShowDialog();
-            if (!(pop상품검색.sRetCode != ""))
-                return;
-            txt_Code.Text = pop상품검색.sRetCode;
-            txt_Name.Text = pop상품검색.sRetName;
-        }
-
-        public void call_pop_Acct(string sTxt, System.Windows.Forms.TextBox txt_Code, System.Windows.Forms.TextBox txt_Name)
-        {
-            pop계정검색 pop계정검색 = new pop계정검색();
-            pop계정검색.nowTextSelect.Text = sTxt;
-            int num = (int)pop계정검색.ShowDialog();
-            if (!(pop계정검색.sRetCode != ""))
-                return;
-            txt_Code.Text = pop계정검색.sRetCode;
-            txt_Name.Text = pop계정검색.sRetName;
-        }
-
-        public void call_pop_Zipcode(
-          string sTxt,
-          System.Windows.Forms.TextBox txt_Code,
-          System.Windows.Forms.TextBox txt_Name,
-          System.Windows.Forms.TextBox txt_Name2)
-        {
-            popZipcode popZipcode = new popZipcode();
-            int num = (int)popZipcode.ShowDialog();
-            if (!popZipcode.bChanged)
-                return;
-            txt_Code.Text = popZipcode.sRetCode;
-            txt_Name.Text = popZipcode.sRetName;
-            txt_Name2.Text = popZipcode.sRetName2;
-        }
+        
 
         public void init_RowText(DataGridView dgv, int nRow)
         {
@@ -1547,7 +1314,7 @@ namespace smartMain.CLS
             }
         }
 
-        public void set_매출일자(conDateTimePicker dtp)
+        public void set_매출일자(DateTimePicker dtp)
         {
             try
             {
@@ -1561,21 +1328,6 @@ namespace smartMain.CLS
                     dtp.Text = dateTime.AddDays(1.0).ToString("yyyy-MM-dd");
                 else
                     dtp.Text = dateTime.ToString("yyyy-MM-dd");
-            }
-            catch
-            {
-                dtp.Text = DateTime.Now.ToString("yyyy-MM-dd");
-            }
-        }
-
-        public void set_공용일자(conDateTimePicker dtp)
-        {
-            try
-            {
-                this.adoTable = this.RunTable("select getdate() ", Common.p_strConnMain);
-                if (this.adoTable == null)
-                    return;
-                dtp.Text = DateTime.Parse(this.adoTable.Rows[0][0].ToString()).ToString("yyyy-MM-dd");
             }
             catch
             {
@@ -1598,6 +1350,8 @@ namespace smartMain.CLS
             }
         }
 
+     
+
         public void set_공용일자일시(DateTimePicker dtp)
         {
             try
@@ -1613,7 +1367,7 @@ namespace smartMain.CLS
             }
         }
 
-        public void set_공용시각(conDateTimePicker dtp)
+        public void set_공용시각(DateTimePicker dtp)
         {
             try
             {
@@ -2039,9 +1793,9 @@ namespace smartMain.CLS
                         System.Windows.Forms.TextBox textBox = (System.Windows.Forms.TextBox)sCtrol;
                         if (textBox.Text.Trim().Length > 0)
                             textBox.Text = "";
-                        if (textBox.GetType().Name == "conTextNumber")
+                        /*if (textBox.GetType().Name == "conTextNumber")
                         {
-                            conTextNumber conTextNumber = (conTextNumber)sCtrol;
+                            conTextNumber TextNumber = (conTextNumber)sCtrol;
                             conTextNumber._FormatString = "#,0";
                             if (conTextNumber._ValueType == "수량")
                                 conTextNumber._FormatString = Common.p_strFormatAmount;
@@ -2049,7 +1803,7 @@ namespace smartMain.CLS
                                 conTextNumber._FormatString = Common.p_strFormatUnit;
                             textBox.Text = 0.ToString(conTextNumber._FormatString);
                             break;
-                        }
+                        }*/
                         break;
                     case System.Windows.Forms.CheckBox _:
                         ((System.Windows.Forms.CheckBox)sCtrol).Checked = false;
@@ -2060,7 +1814,7 @@ namespace smartMain.CLS
                     case MaskedTextBox _:
                         sCtrol.Text = "";
                         break;
-                    case conLabel _:
+                    case Label _:
                         sCtrol.Text = "";
                         break;
                     case RichTextBox _:
@@ -2144,385 +1898,9 @@ namespace smartMain.CLS
             return buffer;
         }
 
-        public void convert_to_CSV_XLS(DataGridView dGV, string filename)
-        {
-            try
-            {
-                File.Delete(filename);
-                File.Delete(filename + ".csv");
-                DataGridViewCheckBoxColumn viewCheckBoxColumn = new DataGridViewCheckBoxColumn();
-                StringBuilder stringBuilder = new StringBuilder();
-                string str = "";
-                for (int index = 0; index < dGV.Columns.Count; ++index)
-                {
-                    if (dGV.Columns[index].Visible && dGV.Columns[index].CellType != viewCheckBoxColumn.CellType)
-                        str = str.ToString() + "\"" + Convert.ToString(dGV.Columns[index].HeaderText) + "\"" + CultureInfo.CurrentCulture.TextInfo.ListSeparator;
-                }
-                stringBuilder.Append(str + "\r\n");
-                for (int index1 = 0; index1 < dGV.RowCount; ++index1)
-                {
-                    for (int index2 = 0; index2 < dGV.Columns.Count; ++index2)
-                    {
-                        if (dGV.Columns[index2].Visible && dGV.Columns[index2].CellType != viewCheckBoxColumn.CellType)
-                        {
-                            if (dGV[index2, index1] is DataGridViewImageCell)
-                                stringBuilder.AppendFormat("\"{0}\"", (object)Convert.ToString(dGV.Rows[index1].Cells[index2].Tag));
-                            else
-                                stringBuilder.AppendFormat("\"{0}\"", (object)Convert.ToString(dGV.Rows[index1].Cells[index2].Value));
-                            stringBuilder.Append(CultureInfo.CurrentCulture.TextInfo.ListSeparator);
-                        }
-                    }
-                    stringBuilder.Append("\r\n");
-                }
-                byte[] bytes = Encoding.GetEncoding(949).GetBytes(stringBuilder.ToString());
-                FileStream fileStream = new FileStream(filename + ".csv", FileMode.CreateNew);
-                BinaryWriter binaryWriter = new BinaryWriter((Stream)fileStream);
-                binaryWriter.Write(bytes, 0, bytes.Length);
-                binaryWriter.Flush();
-                binaryWriter.Close();
-                fileStream.Close();
-                object FieldInfo = (object)new int[30, 2]
-                {
-          {
-            1,
-            2
-          },
-          {
-            2,
-            2
-          },
-          {
-            3,
-            2
-          },
-          {
-            4,
-            2
-          },
-          {
-            5,
-            2
-          },
-          {
-            6,
-            2
-          },
-          {
-            7,
-            2
-          },
-          {
-            8,
-            2
-          },
-          {
-            9,
-            2
-          },
-          {
-            10,
-            2
-          },
-          {
-            11,
-            2
-          },
-          {
-            12,
-            2
-          },
-          {
-            13,
-            2
-          },
-          {
-            14,
-            2
-          },
-          {
-            15,
-            2
-          },
-          {
-            16,
-            2
-          },
-          {
-            17,
-            2
-          },
-          {
-            18,
-            2
-          },
-          {
-            19,
-            2
-          },
-          {
-            20,
-            2
-          },
-          {
-            21,
-            2
-          },
-          {
-            22,
-            2
-          },
-          {
-            23,
-            2
-          },
-          {
-            24,
-            2
-          },
-          {
-            25,
-            2
-          },
-          {
-            26,
-            2
-          },
-          {
-            27,
-            2
-          },
-          {
-            28,
-            2
-          },
-          {
-            29,
-            2
-          },
-          {
-            30,
-            2
-          }
-                };
-                Workbooks workbooks = ((_Application)new ApplicationClass()).Workbooks;
-                workbooks.OpenText(filename + ".csv", (object)Missing.Value, (object)Missing.Value, (object)XlTextParsingType.xlDelimited, ConsecutiveDelimiter: ((object)false), Tab: ((object)Missing.Value), Semicolon: ((object)Missing.Value), Comma: ((object)true), Space: ((object)Missing.Value), Other: ((object)Missing.Value), OtherChar: ((object)Missing.Value), FieldInfo: FieldInfo, TextVisualLayout: ((object)Missing.Value), DecimalSeparator: ((object)Missing.Value), ThousandsSeparator: ((object)Missing.Value), TrailingMinusNumbers: ((object)Missing.Value), Local: ((object)Missing.Value));
-                workbooks[(object)1].SaveAs((object)filename, (object)XlFileFormat.xlExcel8, (object)Missing.Value, (object)Missing.Value, (object)Missing.Value, (object)Missing.Value, ConflictResolution: ((object)Missing.Value), AddToMru: ((object)Missing.Value), TextCodepage: ((object)Missing.Value), TextVisualLayout: ((object)Missing.Value), Local: ((object)Missing.Value));
-                workbooks.Close();
-                File.Delete(filename + ".csv");
-            }
-            catch
-            {
-                int num = (int)MessageBox.Show("저장될 파일이 열렸는지 확인하세요.");
-            }
-        }
+  
 
-        public void convert_to_CSV_XLS_TAX(DataGridView dGV, string filename, string docTitle)
-        {
-            object obj = (object)Missing.Value;
-            try
-            {
-                File.Delete(filename);
-                File.Delete(filename + ".csv");
-                DataGridViewCheckBoxColumn viewCheckBoxColumn = new DataGridViewCheckBoxColumn();
-                StringBuilder stringBuilder = new StringBuilder();
-                stringBuilder.Append("\"" + docTitle + "\"\r\n");
-                stringBuilder.Append("\"★주황색으로 표시된 부분은 필수입력항목으로 반드시 입력하셔야 합니다. ★아래 '항목설명' 시트를 참고하여 작성하시기 바랍니다.\"\r\n");
-                stringBuilder.Append("\"★실제 업로드할 DATA는 7행부터 입력하여야 합니다. 최대 100건까지 입력이 가능하나, 발급은 최대 10건씩 처리가 됩니다.(100건 초과 자료는 처리 안됨) ★임의로 행을 추가하거나 삭제하는 경우 파일을 제대로 읽지 못하는 경우가 있으므로, 주어진 양식안에 반드시 작성을 하시기 바랍니다.\"\r\n");
-                stringBuilder.Append("\"★전자(세금)계산서 종류는 엑셀 업로드 양식에 따라 해당 전자(세금)계산서 종류코드를 반드시 입력하셔야 합니다. ★품목은 1건이상 입력해야 합니다. ★공급받는자 등록번호는 사업자등록번호, 주민등록번호를 입력할 수 있습니다. 외국인인 경우 '9999999999999'를 입력하시고, 비고란에  외국인등록번호 또는 여권번호를 입력하시기 바랍니다.\"\r\n");
-                stringBuilder.Append("\"\"\r\n");
-                string str = "";
-                for (int index = 0; index < dGV.Columns.Count; ++index)
-                {
-                    if (dGV.Columns[index].Visible && dGV.Columns[index].CellType != viewCheckBoxColumn.CellType)
-                        str = str.ToString() + "\"" + Convert.ToString(dGV.Columns[index].HeaderText) + "\"" + CultureInfo.CurrentCulture.TextInfo.ListSeparator;
-                }
-                stringBuilder.Append(str + "\r\n");
-                for (int index1 = 0; index1 < dGV.RowCount; ++index1)
-                {
-                    for (int index2 = 0; index2 < dGV.Columns.Count; ++index2)
-                    {
-                        if (dGV.Columns[index2].Visible && dGV.Columns[index2].CellType != viewCheckBoxColumn.CellType)
-                        {
-                            if (dGV[index2, index1] is DataGridViewImageCell)
-                                stringBuilder.AppendFormat("\"{0}\"", (object)Convert.ToString(dGV.Rows[index1].Cells[index2].Tag));
-                            else if (index2 == 0 || index2 == 22 || index2 == dGV.Columns.Count - 1)
-                                stringBuilder.AppendFormat("=\"{0}\"", (object)Convert.ToString(dGV.Rows[index1].Cells[index2].Value));
-                            else
-                                stringBuilder.AppendFormat("\"{0}\"", (object)Convert.ToString(dGV.Rows[index1].Cells[index2].Value));
-                            stringBuilder.Append(CultureInfo.CurrentCulture.TextInfo.ListSeparator);
-                        }
-                    }
-                    stringBuilder.Append("\r\n");
-                }
-                byte[] bytes = Encoding.GetEncoding(949).GetBytes(stringBuilder.ToString());
-                FileStream fileStream = new FileStream(filename + ".csv", FileMode.CreateNew);
-                BinaryWriter binaryWriter = new BinaryWriter((Stream)fileStream);
-                binaryWriter.Write(bytes, 0, bytes.Length);
-                binaryWriter.Flush();
-                binaryWriter.Close();
-                fileStream.Close();
-                object FieldInfo = (object)new int[30, 2]
-                {
-          {
-            1,
-            2
-          },
-          {
-            2,
-            2
-          },
-          {
-            3,
-            2
-          },
-          {
-            4,
-            2
-          },
-          {
-            5,
-            2
-          },
-          {
-            6,
-            2
-          },
-          {
-            7,
-            2
-          },
-          {
-            8,
-            2
-          },
-          {
-            9,
-            2
-          },
-          {
-            10,
-            2
-          },
-          {
-            11,
-            2
-          },
-          {
-            12,
-            2
-          },
-          {
-            13,
-            2
-          },
-          {
-            14,
-            2
-          },
-          {
-            15,
-            2
-          },
-          {
-            16,
-            2
-          },
-          {
-            17,
-            2
-          },
-          {
-            18,
-            2
-          },
-          {
-            19,
-            2
-          },
-          {
-            20,
-            2
-          },
-          {
-            21,
-            2
-          },
-          {
-            22,
-            2
-          },
-          {
-            23,
-            2
-          },
-          {
-            24,
-            2
-          },
-          {
-            25,
-            2
-          },
-          {
-            26,
-            2
-          },
-          {
-            27,
-            2
-          },
-          {
-            28,
-            2
-          },
-          {
-            29,
-            2
-          },
-          {
-            30,
-            2
-          }
-                };
-                Workbooks workbooks = ((_Application)new ApplicationClass()).Workbooks;
-                workbooks.OpenText(filename + ".csv", (object)Missing.Value, (object)Missing.Value, (object)XlTextParsingType.xlDelimited, ConsecutiveDelimiter: ((object)false), Tab: ((object)Missing.Value), Semicolon: ((object)Missing.Value), Comma: ((object)true), Space: ((object)Missing.Value), Other: ((object)Missing.Value), OtherChar: ((object)Missing.Value), FieldInfo: FieldInfo, TextVisualLayout: ((object)Missing.Value), DecimalSeparator: ((object)Missing.Value), ThousandsSeparator: ((object)Missing.Value), TrailingMinusNumbers: ((object)Missing.Value), Local: ((object)Missing.Value));
-                workbooks[(object)1].SaveAs((object)filename, (object)XlFileFormat.xlExcel8, (object)Missing.Value, (object)Missing.Value, (object)Missing.Value, (object)Missing.Value, ConflictResolution: ((object)Missing.Value), AddToMru: ((object)Missing.Value), TextCodepage: ((object)Missing.Value), TextVisualLayout: ((object)Missing.Value), Local: ((object)Missing.Value));
-                workbooks.Close();
-                File.Delete(filename + ".csv");
-                Microsoft.Office.Interop.Excel.Application application = (Microsoft.Office.Interop.Excel.Application)null;
-                Workbook workbook = (Workbook)null;
-                Worksheet worksheet = (Worksheet)null;
-                try
-                {
-                    Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("ko-KR");
-                    application = (Microsoft.Office.Interop.Excel.Application)new ApplicationClass();
-                    workbook = application.Workbooks.Open(filename, (object)Missing.Value, (object)Missing.Value, (object)Missing.Value, (object)Missing.Value, (object)Missing.Value, (object)Missing.Value, (object)Missing.Value, (object)Missing.Value, (object)Missing.Value, (object)Missing.Value, (object)Missing.Value, (object)Missing.Value, (object)Missing.Value, (object)Missing.Value);
-                    worksheet = (Worksheet)workbook.Worksheets.get_Item((object)1);
-                    Microsoft.Office.Interop.Excel.Range range = worksheet.get_Range((object)"A6", (object)"BG106");
-                    range.Borders.LineStyle = (object)XlLineStyle.xlContinuous;
-                    range.Font.Size = (object)9;
-                    worksheet.get_Range((object)"B6", (object)"BG106").EntireColumn.AutoFit();
-                    worksheet.Application.ActiveWorkbook.Save();
-                }
-                catch
-                {
-                    int num = (int)MessageBox.Show("파일 저장에 실패했습니다.");
-                }
-                finally
-                {
-                    wnGConstant.ReleaseExcel((object)worksheet);
-                    workbook.Close((object)false, obj, obj);
-                    wnGConstant.ReleaseExcel((object)workbook);
-                    application.Quit();
-                    wnGConstant.ReleaseExcel((object)application);
-                }
-            }
-            catch
-            {
-                int num = (int)MessageBox.Show("엑셀 생성 중에 오류가 발생했습니다..");
-            }
-        }
-
+    
         public void Run_Excel(string fileName) => Process.Start(new ProcessStartInfo()
         {
             FileName = "EXCEL.EXE",
@@ -2628,241 +2006,9 @@ namespace smartMain.CLS
             return (10 - (num + numArray1[8] * 5 / 10) % 10) % 10 == numArray1[9];
         }
 
-        public void mergeCells(DataGridView grd, int nColCnt)
-        {
-            string[] strArray = new string[nColCnt];
-            int[] numArray1 = new int[nColCnt];
-            int[] numArray2 = new int[nColCnt];
-            for (int index = 0; index < nColCnt; ++index)
-            {
-                strArray[index] = "---";
-                numArray1[index] = 0;
-                numArray2[index] = 0;
-            }
-            for (int index1 = 0; index1 < grd.Rows.Count; ++index1)
-            {
-                for (int index2 = 0; index2 < nColCnt; ++index2)
-                {
-                    if (strArray[index2] == ((string)grd.Rows[index1].Cells[index2].Value ?? ""))
-                    {
-                        if (index2 == 0)
-                            ++numArray2[index2];
-                        else if (numArray2[index2 - 1] > 0)
-                        {
-                            ++numArray2[index2];
-                        }
-                        else
-                        {
-                            if (numArray2[index2] > 0)
-                                ((DataGridViewTextBoxCellEx)grd[index2, numArray1[index2]]).RowSpan = numArray2[index2] + 1;
-                            numArray1[index2] = index1;
-                            numArray2[index2] = 0;
-                            strArray[index2] = (string)grd.Rows[index1].Cells[index2].Value ?? "";
-                        }
-                    }
-                    else
-                    {
-                        if (numArray2[index2] > 0)
-                            ((DataGridViewTextBoxCellEx)grd[index2, numArray1[index2]]).RowSpan = numArray2[index2] + 1;
-                        numArray1[index2] = index1;
-                        numArray2[index2] = 0;
-                        strArray[index2] = (string)grd.Rows[index1].Cells[index2].Value ?? "";
-                    }
-                }
-            }
-            for (int columnIndex = 0; columnIndex < nColCnt; ++columnIndex)
-            {
-                if (numArray2[columnIndex] > 0)
-                    ((DataGridViewTextBoxCellEx)grd[columnIndex, numArray1[columnIndex]]).RowSpan = numArray2[columnIndex] + 1;
-            }
-        }
+       
 
-        public void DataGridViewToExcel_TAX(
-          int nStartRow,
-          DataGridView dgv,
-          string strFilePath,
-          string sTitle,
-          string sCondition,
-          string sCondition2,
-          string sCondition3,
-          string sCondition4)
-        {
-            Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("ko-KR");
-            object obj1 = (object)Missing.Value;
-            int num1 = 1;
-            Microsoft.Office.Interop.Excel.Application application = (Microsoft.Office.Interop.Excel.Application)new ApplicationClass();
-            Workbook workbook = application.Workbooks.Add(System.Type.Missing);
-            object obj2 = (object)XlFileFormat.xlWorkbookNormal;
-            application.Visible = false;
-            Worksheet worksheet = (Worksheet)workbook.Worksheets[(object)1];
-            int num2 = 0;
-            for (int index = 0; index < dgv.Columns.Count; ++index)
-            {
-                if (dgv.Columns[index].Visible)
-                    ++num2;
-            }
-            Microsoft.Office.Interop.Excel.Range cell1 = (Microsoft.Office.Interop.Excel.Range)worksheet.Cells[(object)num1, (object)1];
-            cell1.FormulaR1C1 = (object)("=\"" + sTitle + "\"");
-            cell1.HorizontalAlignment = (object)XlHAlign.xlHAlignLeft;
-            cell1.VerticalAlignment = (object)XlVAlign.xlVAlignCenter;
-            cell1.Font.Color = (object)ColorTranslator.ToOle(Color.Black);
-            cell1.Font.Size = (object)16;
-            cell1.Font.Bold = (object)true;
-            int num3 = num1 + 1;
-            Microsoft.Office.Interop.Excel.Range cell2 = (Microsoft.Office.Interop.Excel.Range)worksheet.Cells[(object)num3, (object)1];
-            cell2.FormulaR1C1 = (object)("=\"" + sCondition + "\"");
-            cell2.HorizontalAlignment = (object)XlHAlign.xlHAlignLeft;
-            cell2.VerticalAlignment = (object)XlVAlign.xlVAlignCenter;
-            cell2.Font.Color = (object)ColorTranslator.ToOle(Color.Black);
-            cell2.Font.Size = (object)9;
-            int num4 = num3 + 1;
-            Microsoft.Office.Interop.Excel.Range cell3 = (Microsoft.Office.Interop.Excel.Range)worksheet.Cells[(object)num4, (object)1];
-            cell3.FormulaR1C1 = (object)("=\"" + sCondition2 + "\"");
-            cell3.HorizontalAlignment = (object)XlHAlign.xlHAlignLeft;
-            cell3.VerticalAlignment = (object)XlVAlign.xlVAlignCenter;
-            cell3.Font.Color = (object)ColorTranslator.ToOle(Color.Black);
-            cell3.Font.Size = (object)9;
-            int num5 = num4 + 1;
-            Microsoft.Office.Interop.Excel.Range cell4 = (Microsoft.Office.Interop.Excel.Range)worksheet.Cells[(object)num5, (object)1];
-            cell4.FormulaR1C1 = (object)("=\"" + sCondition3 + "\"");
-            cell4.HorizontalAlignment = (object)XlHAlign.xlHAlignLeft;
-            cell4.VerticalAlignment = (object)XlVAlign.xlVAlignCenter;
-            cell4.Font.Color = (object)ColorTranslator.ToOle(Color.Black);
-            cell4.Font.Size = (object)9;
-            int num6 = num5 + 1;
-            Microsoft.Office.Interop.Excel.Range cell5 = (Microsoft.Office.Interop.Excel.Range)worksheet.Cells[(object)num6, (object)1];
-            cell5.FormulaR1C1 = (object)("=\"" + sCondition4 + "\"");
-            cell5.HorizontalAlignment = (object)XlHAlign.xlHAlignLeft;
-            cell5.VerticalAlignment = (object)XlVAlign.xlVAlignCenter;
-            cell5.Font.Color = (object)ColorTranslator.ToOle(Color.Black);
-            cell5.Font.Size = (object)9;
-            int num7 = num6 + 1;
-            int num8 = 0;
-            for (int index = 0; index < dgv.Columns.Count; ++index)
-            {
-                if (dgv.Columns[index].Visible)
-                {
-                    Microsoft.Office.Interop.Excel.Range cell6 = (Microsoft.Office.Interop.Excel.Range)worksheet.Cells[(object)num7, (object)(num8 + 1)];
-                    cell6.HorizontalAlignment = (object)XlHAlign.xlHAlignCenter;
-                    cell6.Borders.LineStyle = (object)XlLineStyle.xlContinuous;
-                    cell6.set_Value(obj1, (object)dgv.Columns[index].HeaderText);
-                    cell6.ColumnWidth = (object)(dgv.Columns[index].Width / 10);
-                    ++num8;
-                }
-            }
-            int num9 = num7 + 1;
-            for (int index1 = 0; index1 < dgv.Rows.Count; ++index1)
-            {
-                int num10 = 0;
-                for (int index2 = 0; index2 < dgv.Columns.Count; ++index2)
-                {
-                    if (dgv.Columns[index2].Visible)
-                    {
-                        Microsoft.Office.Interop.Excel.Range cell7 = (Microsoft.Office.Interop.Excel.Range)worksheet.Cells[(object)(index1 + num9), (object)(num10 + 1)];
-                        cell7.EntireColumn.Font.Size = (object)9;
-                        cell7.Borders.LineStyle = (object)XlLineStyle.xlContinuous;
-                        string strTag;
-                        try
-                        {
-                            strTag = dgv.Columns[index2].ToolTipText.ToString();
-                        }
-                        catch
-                        {
-                            strTag = "";
-                        }
-                        try
-                        {
-                            string str1 = dgv.Rows[index1].Cells[index2].Value.ToString();
-                            if (dgv.Columns[index2].CellType.Name == "DataGridViewComboBoxCell")
-                                str1 = dgv.Rows[index1].Cells[index2].FormattedValue.ToString();
-                            string strPint = str1.IndexOf('.') < 0 ? "0" : "1";
-                            this.FormatCell(strTag, strPint, cell7);
-                            string str2;
-                            if (strTag.IndexOf("수량") >= 0 || strTag.IndexOf("단가") >= 0)
-                            {
-                                try
-                                {
-                                    str2 = Convert.ToDouble(str1) != 0.0 ? string.Format("{0:N7}", (object)Convert.ToDouble(str1)) : "0";
-                                }
-                                catch
-                                {
-                                    str2 = "";
-                                }
-                            }
-                            else if (strTag.IndexOf("금액") >= 0)
-                            {
-                                try
-                                {
-                                    str2 = Convert.ToDouble(str1) != 0.0 ? string.Format("{0:N0}", (object)Convert.ToDouble(str1)) : "0";
-                                }
-                                catch
-                                {
-                                    str2 = "";
-                                }
-                            }
-                            else
-                                str2 = "=\"" + str1 + "\"";
-                            cell7.set_Value(obj1, (object)str2);
-                        }
-                        catch
-                        {
-                        }
-                        if (num10 > 0)
-                            cell7.EntireColumn.AutoFit();
-                        ++num10;
-                    }
-                }
-            }
-            if (nStartRow > 0)
-                strFilePath = strFilePath.Replace(".xls", "(" + (nStartRow + 1).ToString() + ").xls");
-            if (File.Exists(strFilePath))
-                File.Delete(strFilePath);
-            try
-            {
-                worksheet.SaveAs(strFilePath, (object)XlFileFormat.xlExcel5, (object)Missing.Value, (object)Missing.Value, (object)Missing.Value, (object)Missing.Value, (object)Missing.Value, (object)Missing.Value, (object)Missing.Value, (object)Missing.Value);
-            }
-            catch (Exception ex)
-            {
-                int num11 = (int)MessageBox.Show("다운로드 중에 문제가 발생했습니다.");
-            }
-            finally
-            {
-                wnGConstant.ReleaseExcel((object)worksheet);
-                workbook.Close((object)false, obj1, obj1);
-                wnGConstant.ReleaseExcel((object)workbook);
-                application.Quit();
-                wnGConstant.ReleaseExcel((object)application);
-            }
-        }
-
-        private static void ReleaseExcel(object obj)
-        {
-            try
-            {
-                if (obj == null)
-                    return;
-                Marshal.FinalReleaseComObject(obj);
-                obj = (object)null;
-            }
-            catch (Exception ex)
-            {
-                obj = (object)null;
-                throw ex;
-            }
-            finally
-            {
-                GC.Collect();
-                GC.WaitForPendingFinalizers();
-            }
-        }
-
-        private void FormatCell(string strTag, string strPint, Microsoft.Office.Interop.Excel.Range exRng)
-        {
-            if (strTag.IndexOf("수량") < 0 && strTag.IndexOf("단가") < 0)
-                return;
-            exRng.HorizontalAlignment = (object)XlHAlign.xlHAlignRight;
-            exRng.NumberFormat = !(strPint == "1") ? (object)"#,##0" : (object)"#,##0.#######";
-        }
+      
 
         public DataGridView Copy_DataGirdView(
           DataGridView grd,

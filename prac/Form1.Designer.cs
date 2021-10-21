@@ -29,9 +29,10 @@ namespace prac
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelAll = new System.Windows.Forms.Panel();
+            this.Span = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -44,6 +45,7 @@ namespace prac
             this.textCode = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.SearchText = new System.Windows.Forms.TextBox();
             this.Search_btn = new System.Windows.Forms.Button();
             this.GridView = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,8 +58,8 @@ namespace prac
             this.delete_btn = new System.Windows.Forms.Button();
             this.save_btn = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.SearchText = new System.Windows.Forms.TextBox();
             this.panelAll.SuspendLayout();
+            this.Span.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridView)).BeginInit();
@@ -66,13 +68,21 @@ namespace prac
             // 
             // panelAll
             // 
-            this.panelAll.Controls.Add(this.panel3);
+            this.panelAll.Controls.Add(this.Span);
             this.panelAll.Controls.Add(this.panel2);
             this.panelAll.Controls.Add(this.panelTitle);
             this.panelAll.Location = new System.Drawing.Point(2, 2);
             this.panelAll.Name = "panelAll";
             this.panelAll.Size = new System.Drawing.Size(1482, 623);
             this.panelAll.TabIndex = 0;
+            // 
+            // Span
+            // 
+            this.Span.Controls.Add(this.panel3);
+            this.Span.Location = new System.Drawing.Point(5, 50);
+            this.Span.Name = "Span";
+            this.Span.Size = new System.Drawing.Size(981, 572);
+            this.Span.TabIndex = 77;
             // 
             // panel3
             // 
@@ -89,7 +99,7 @@ namespace prac
             this.panel3.Controls.Add(this.textName);
             this.panel3.Controls.Add(this.textCode);
             this.panel3.Controls.Add(this.label6);
-            this.panel3.Location = new System.Drawing.Point(10, 66);
+            this.panel3.Location = new System.Drawing.Point(5, 16);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(938, 519);
             this.panel3.TabIndex = 76;
@@ -190,6 +200,14 @@ namespace prac
             this.panel2.Size = new System.Drawing.Size(377, 519);
             this.panel2.TabIndex = 1;
             // 
+            // SearchText
+            // 
+            this.SearchText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SearchText.Location = new System.Drawing.Point(17, 40);
+            this.SearchText.Name = "SearchText";
+            this.SearchText.Size = new System.Drawing.Size(223, 23);
+            this.SearchText.TabIndex = 0;
+            // 
             // Search_btn
             // 
             this.Search_btn.Location = new System.Drawing.Point(246, 39);
@@ -211,14 +229,14 @@ namespace prac
             this.GridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.GridView.BackgroundColor = System.Drawing.Color.White;
             this.GridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(239)))), ((int)(((byte)(235)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(181)))), ((int)(((byte)(189)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.GridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(239)))), ((int)(((byte)(235)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(181)))), ((int)(((byte)(189)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.GridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.GridView.ColumnHeadersHeight = 30;
             this.GridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -232,15 +250,16 @@ namespace prac
             this.GridView.ReadOnly = true;
             this.GridView.RowHeadersVisible = false;
             this.GridView.RowHeadersWidth = 62;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            this.GridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            this.GridView.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.GridView.RowTemplate.Height = 23;
             this.GridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.GridView.Size = new System.Drawing.Size(358, 305);
             this.GridView.TabIndex = 2;
             this.GridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.GridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GridView_KeyDown);
             // 
             // Column1
             // 
@@ -334,14 +353,6 @@ namespace prac
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // SearchText
-            // 
-            this.SearchText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SearchText.Location = new System.Drawing.Point(17, 40);
-            this.SearchText.Name = "SearchText";
-            this.SearchText.Size = new System.Drawing.Size(223, 23);
-            this.SearchText.TabIndex = 0;
-            // 
             // Form장비등록
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -354,6 +365,7 @@ namespace prac
             this.Text = "장비등록";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panelAll.ResumeLayout(false);
+            this.Span.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -392,6 +404,7 @@ namespace prac
         private System.Windows.Forms.Button save_btn;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox SearchText;
+        private System.Windows.Forms.Panel Span;
     }
 }
 
