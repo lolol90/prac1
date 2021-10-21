@@ -45,7 +45,6 @@ namespace prac
             this.label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.Search_btn = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.GridView = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,6 +56,7 @@ namespace prac
             this.delete_btn = new System.Windows.Forms.Button();
             this.save_btn = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.SearchText = new System.Windows.Forms.TextBox();
             this.panelAll.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -78,6 +78,7 @@ namespace prac
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.BackColor = System.Drawing.Color.Gainsboro;
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.label3);
@@ -137,35 +138,35 @@ namespace prac
             // 
             this.text비고.Location = new System.Drawing.Point(151, 198);
             this.text비고.Name = "text비고";
-            this.text비고.Size = new System.Drawing.Size(659, 31);
+            this.text비고.Size = new System.Drawing.Size(659, 23);
             this.text비고.TabIndex = 7;
             // 
             // text교환주기
             // 
             this.text교환주기.Location = new System.Drawing.Point(151, 157);
             this.text교환주기.Name = "text교환주기";
-            this.text교환주기.Size = new System.Drawing.Size(86, 31);
+            this.text교환주기.Size = new System.Drawing.Size(86, 23);
             this.text교환주기.TabIndex = 6;
             // 
             // textSize
             // 
             this.textSize.Location = new System.Drawing.Point(151, 113);
             this.textSize.Name = "textSize";
-            this.textSize.Size = new System.Drawing.Size(237, 31);
+            this.textSize.Size = new System.Drawing.Size(237, 23);
             this.textSize.TabIndex = 5;
             // 
             // textName
             // 
             this.textName.Location = new System.Drawing.Point(151, 67);
             this.textName.Name = "textName";
-            this.textName.Size = new System.Drawing.Size(237, 31);
+            this.textName.Size = new System.Drawing.Size(237, 23);
             this.textName.TabIndex = 2;
             // 
             // textCode
             // 
             this.textCode.Location = new System.Drawing.Point(151, 25);
             this.textCode.Name = "textCode";
-            this.textCode.Size = new System.Drawing.Size(86, 31);
+            this.textCode.Size = new System.Drawing.Size(86, 23);
             this.textCode.TabIndex = 2;
             // 
             // label6
@@ -180,8 +181,9 @@ namespace prac
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.SkyBlue;
+            this.panel2.Controls.Add(this.SearchText);
             this.panel2.Controls.Add(this.Search_btn);
-            this.panel2.Controls.Add(this.textBox1);
             this.panel2.Controls.Add(this.GridView);
             this.panel2.Location = new System.Drawing.Point(1000, 66);
             this.panel2.Name = "panel2";
@@ -196,14 +198,7 @@ namespace prac
             this.Search_btn.TabIndex = 2;
             this.Search_btn.Text = "검색";
             this.Search_btn.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(3, 39);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(237, 31);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.Search_btn.Click += new System.EventHandler(this.Search_btn_Click);
             // 
             // GridView
             // 
@@ -339,6 +334,14 @@ namespace prac
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // SearchText
+            // 
+            this.SearchText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SearchText.Location = new System.Drawing.Point(17, 40);
+            this.SearchText.Name = "SearchText";
+            this.SearchText.Size = new System.Drawing.Size(223, 23);
+            this.SearchText.TabIndex = 0;
+            // 
             // Form장비등록
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -371,7 +374,6 @@ namespace prac
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textName;
         private System.Windows.Forms.TextBox textCode;
@@ -389,6 +391,7 @@ namespace prac
         private System.Windows.Forms.Button delete_btn;
         private System.Windows.Forms.Button save_btn;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox SearchText;
     }
 }
 

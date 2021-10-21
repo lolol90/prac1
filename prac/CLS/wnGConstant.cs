@@ -216,7 +216,7 @@ namespace smartMain.CLS
         }
 
         public void call_pop_Prod(
-          conDataGridView dgv,
+          DataGridView dgv,
           int nRow,
           string sTxt,
           string sCust,
@@ -238,7 +238,7 @@ namespace smartMain.CLS
         }
 
         public void call_pop_Prod_창고이동(
-          conDataGridView dgv,
+          DataGridView dgv,
           int nRow,
           string sTxt,
           int nColCode,
@@ -293,7 +293,7 @@ namespace smartMain.CLS
             txt_Name2.Text = popZipcode.sRetName2;
         }
 
-        public void init_RowText(conDataGridView dgv, int nRow)
+        public void init_RowText(DataGridView dgv, int nRow)
         {
             dgv.Rows[nRow].Cells[0].Value = (object)false;
             dgv.Rows[nRow].Cells[2].Value = (object)"";
@@ -325,7 +325,7 @@ namespace smartMain.CLS
         }
 
         public void get_Prod_Info(
-          conDataGridView dgv,
+          DataGridView dgv,
           int nRow,
           string sCode,
           string s근무형태코드,
@@ -448,7 +448,7 @@ namespace smartMain.CLS
             }
         }
 
-        public void get_Prod_Info_창고이동(conDataGridView dgv, int nRow, string sCode)
+        public void get_Prod_Info_창고이동(DataGridView dgv, int nRow, string sCode)
         {
             try
             {
@@ -469,7 +469,7 @@ namespace smartMain.CLS
             }
         }
 
-        public void get_Prod_Info_Code(conDataGridView dgv, int nRow, string sCode)
+        public void get_Prod_Info_Code(DataGridView dgv, int nRow, string sCode)
         {
             try
             {
@@ -487,7 +487,7 @@ namespace smartMain.CLS
         }
 
         public void get_Prod_Info_Old_매출(
-          conDataGridView dgv,
+          DataGridView dgv,
           int nRow,
           string sCust,
           string sCode,
@@ -518,7 +518,7 @@ namespace smartMain.CLS
         }
 
         public void get_Prod_Info_Old_매입(
-          conDataGridView dgv,
+          DataGridView dgv,
           int nRow,
           string sCust,
           string sCode,
@@ -540,7 +540,7 @@ namespace smartMain.CLS
             }
         }
 
-        public void Calc_Price(conDataGridView dgv, int nRow, string s거래처부가세코드)
+        public void Calc_Price(DataGridView dgv, int nRow, string s거래처부가세코드)
         {
             dgv.Rows[nRow].Cells[12].Value = (object)"0";
             dgv.Rows[nRow].Cells[15].Value = (object)"0";
@@ -646,7 +646,7 @@ namespace smartMain.CLS
             dgv.Rows[nRow].Cells[27].Value = (object)num4.ToString();
         }
 
-        public void Calc_Amount(conDataGridView dgv, int nRow)
+        public void Calc_Amount(DataGridView dgv, int nRow)
         {
             dgv.Rows[nRow].Cells[12].Value = (object)"0";
             dgv.Rows[nRow].Cells[15].Value = (object)"0";
@@ -1321,7 +1321,7 @@ namespace smartMain.CLS
         }
 
         public void setCombo_업체용_일반(
-          conComboBox cmb,
+         ComboBox cmb,
           string sCode,
           string sName,
           string sTable,
@@ -1345,7 +1345,7 @@ namespace smartMain.CLS
         }
 
         public void setCombo_업체용_일반조건(
-          conComboBox cmb,
+          ComboBox cmb,
           string sCode,
           string sName,
           string sTable,
@@ -1370,7 +1370,7 @@ namespace smartMain.CLS
             }
         }
 
-        public void setCombo_업체용코드(conComboBox cmb, string sTable, string sGubun)
+        public void setCombo_업체용코드(ComboBox cmb, string sTable, string sGubun)
         {
             cmb.DisplayMember = "명칭";
             cmb.ValueMember = "코드";
@@ -1408,7 +1408,7 @@ namespace smartMain.CLS
             }
         }
 
-        public void setCombo_업체용코드_상품관련(conComboBox cmb, string sTable, string sGubun)
+        public void setCombo_업체용코드_상품관련(ComboBox cmb, string sTable, string sGubun)
         {
             cmb.DisplayMember = "명칭";
             cmb.ValueMember = "코드";
@@ -1427,7 +1427,7 @@ namespace smartMain.CLS
             }
         }
 
-        public void setCombo_배송차량_코드(string sSpot, conComboBox cmb, string sTable, string sGubun)
+        public void setCombo_배송차량_코드(string sSpot, ComboBox cmb, string sTable, string sGubun)
         {
             cmb.DisplayMember = "명칭";
             cmb.ValueMember = "코드";
@@ -1447,7 +1447,7 @@ namespace smartMain.CLS
         }
 
         public void setCombo_업체용코드(
-          conComboBox cmb,
+          ComboBox cmb,
           string sTable,
           string sGubun,
           string sBlankName,
@@ -1467,7 +1467,7 @@ namespace smartMain.CLS
             }
         }
 
-        public void setCombo_공용코드_옵션(conComboBox cmb, string sTable, string sNum, string sGubun)
+        public void setCombo_공용코드_옵션(ComboBox cmb, string sTable, string sNum, string sGubun)
         {
             cmb.DisplayMember = "명칭" + sNum;
             cmb.ValueMember = "코드";
@@ -1528,7 +1528,7 @@ namespace smartMain.CLS
             }
         }
 
-        public void setCombo_공용코드(conComboBox cmb, string sTable, string sGubun)
+        public void setCombo_공용코드(ComboBox cmb, string sTable, string sGubun)
         {
             cmb.DisplayMember = "명칭";
             cmb.ValueMember = "코드";
@@ -1658,7 +1658,7 @@ namespace smartMain.CLS
             }
         }
 
-        public void setCombo_출고차수(conComboBox cmb)
+        public void setCombo_출고차수(ComboBox cmb)
         {
             cmb.DisplayMember = "명칭";
             cmb.ValueMember = "코드";
@@ -1666,7 +1666,7 @@ namespace smartMain.CLS
             this.ComboBox_Read_NoBlank((ComboBox)cmb, sQuery, Common.p_strConn);
         }
 
-        public void setCombo_중상처(conComboBox cmb)
+        public void setCombo_중상처(ComboBox cmb)
         {
             cmb.DisplayMember = "대표자명";
             cmb.ValueMember = "거래처코드";
@@ -1674,7 +1674,7 @@ namespace smartMain.CLS
             this.ComboBox_Read(cmb, sQuery, Common.p_strConn);
         }
 
-        public void setCombo_중상처_상호(conComboBox cmb)
+        public void setCombo_중상처_상호(ComboBox cmb)
         {
             cmb.DisplayMember = "거래처명";
             cmb.ValueMember = "거래처코드";
@@ -1682,7 +1682,7 @@ namespace smartMain.CLS
             this.ComboBox_Read(cmb, sQuery, Common.p_strConn);
         }
 
-        public void setCombo_사원번호_여부(conComboBox cmb)
+        public void setCombo_사원번호_여부(ComboBox cmb)
         {
             cmb.DisplayMember = "사용자상세명";
             cmb.ValueMember = "사원번호";
@@ -1696,7 +1696,7 @@ namespace smartMain.CLS
                 this.ComboBox_Read(cmb, sQuery, Common.p_strConn);
         }
 
-        public void setCombo_사원번호_여부(conComboBox cmb, bool bExist_only)
+        public void setCombo_사원번호_여부(ComboBox cmb, bool bExist_only)
         {
             cmb.DisplayMember = "사용자상세명";
             cmb.ValueMember = "사원번호";
@@ -1712,7 +1712,7 @@ namespace smartMain.CLS
                 this.ComboBox_Read(cmb, sQuery, Common.p_strConn);
         }
 
-        public void setCombo_사원번호별_창고(conComboBox cmb)
+        public void setCombo_사원번호별_창고(ComboBox cmb)
         {
             cmb.DisplayMember = "창고명";
             cmb.ValueMember = "창고코드";
@@ -1726,7 +1726,7 @@ namespace smartMain.CLS
                 this.ComboBox_Read(cmb, sQuery, Common.p_strConn);
         }
 
-        public void setCombo_사원번호_여부_상호명(conComboBox cmb)
+        public void setCombo_사원번호_여부_상호명(ComboBox cmb)
         {
             cmb.DisplayMember = "상호명";
             cmb.ValueMember = "사원번호";
@@ -1734,7 +1734,7 @@ namespace smartMain.CLS
             this.ComboBox_Read(cmb, sQuery, Common.p_strConn);
         }
 
-        public void setCombo_사원번호_여부_창고(conComboBox cmb)
+        public void setCombo_사원번호_여부_창고(ComboBox cmb)
         {
             cmb.DisplayMember = "창고명";
             cmb.ValueMember = "창고코드";
@@ -1742,7 +1742,7 @@ namespace smartMain.CLS
             this.ComboBox_Read(cmb, sQuery, Common.p_strConn);
         }
 
-        public void setCombo_사원번호(conComboBox cmb, bool bExist_only)
+        public void setCombo_사원번호(ComboBox cmb, bool bExist_only)
         {
             cmb.DisplayMember = "사용자명";
             cmb.ValueMember = "사원번호";
@@ -1753,7 +1753,7 @@ namespace smartMain.CLS
             this.ComboBox_Read(cmb, sQuery, Common.p_strConn);
         }
 
-        public void setCombo_사원번호_창고(conComboBox cmb, bool bExist_only)
+        public void setCombo_사원번호_창고(ComboBox cmb, bool bExist_only)
         {
             cmb.DisplayMember = "창고명";
             cmb.ValueMember = "창고코드";
@@ -1764,7 +1764,7 @@ namespace smartMain.CLS
             this.ComboBox_Read(cmb, sQuery, Common.p_strConn);
         }
 
-        public void setCombo_상품_규격_여부(conComboBox cmb)
+        public void setCombo_상품_규격_여부(ComboBox cmb)
         {
             cmb.DisplayMember = "상품상세명";
             cmb.ValueMember = "상품코드";
@@ -1772,7 +1772,7 @@ namespace smartMain.CLS
             this.ComboBox_Read(cmb, sQuery, Common.p_strConn);
         }
 
-        public void setCombo_상품_규격(conComboBox cmb, bool bNew)
+        public void setCombo_상품_규격(ComboBox cmb, bool bNew)
         {
             cmb.DisplayMember = "상품상세명";
             cmb.ValueMember = "상품코드";
@@ -1783,7 +1783,7 @@ namespace smartMain.CLS
             this.ComboBox_Read(cmb, sQuery, Common.p_strConn);
         }
 
-        public void setCombo_상품(conComboBox cmb, bool bNew)
+        public void setCombo_상품(ComboBox cmb, bool bNew)
         {
             cmb.DisplayMember = "상품명";
             cmb.ValueMember = "상품코드";
@@ -1794,7 +1794,7 @@ namespace smartMain.CLS
             this.ComboBox_Read(cmb, sQuery, Common.p_strConn);
         }
 
-        public void setCombo_매출처(conComboBox cmb, bool bNew)
+        public void setCombo_매출처(ComboBox cmb, bool bNew)
         {
             cmb.DisplayMember = "거래처명";
             cmb.ValueMember = "거래처코드";
@@ -1805,7 +1805,7 @@ namespace smartMain.CLS
             this.ComboBox_Read(cmb, sQuery, Common.p_strConn);
         }
 
-        public void setCombo_매출처_Long(conComboBox cmb, bool bNew)
+        public void setCombo_매출처_Long(ComboBox cmb, bool bNew)
         {
             cmb.DisplayMember = "거래처긴명칭";
             cmb.ValueMember = "거래처코드";
@@ -1816,7 +1816,7 @@ namespace smartMain.CLS
             this.ComboBox_Read(cmb, sQuery, Common.p_strConn);
         }
 
-        public void setCombo_매입처(conComboBox cmb, bool bNew)
+        public void setCombo_매입처(ComboBox cmb, bool bNew)
         {
             cmb.DisplayMember = "거래처명";
             cmb.ValueMember = "거래처코드";
@@ -1827,7 +1827,7 @@ namespace smartMain.CLS
             this.ComboBox_Read(cmb, sQuery, Common.p_strConn);
         }
 
-        public void setCombo_매출처_여부(conComboBox cmb)
+        public void setCombo_매출처_여부(ComboBox cmb)
         {
             cmb.DisplayMember = "거래처상세명";
             cmb.ValueMember = "거래처코드";
@@ -1835,7 +1835,7 @@ namespace smartMain.CLS
             this.ComboBox_Read(cmb, sQuery, Common.p_strConn);
         }
 
-        public void setCombo_매입처_여부(conComboBox cmb)
+        public void setCombo_매입처_여부(ComboBox cmb)
         {
             cmb.DisplayMember = "거래처상세명";
             cmb.ValueMember = "거래처코드";
@@ -1843,7 +1843,7 @@ namespace smartMain.CLS
             this.ComboBox_Read(cmb, sQuery, Common.p_strConn);
         }
 
-        public void setCombo_창고(conComboBox cmb)
+        public void setCombo_창고(ComboBox cmb)
         {
             cmb.DisplayMember = "명칭";
             cmb.ValueMember = "코드";
@@ -1857,7 +1857,7 @@ namespace smartMain.CLS
                 this.ComboBox_Read(cmb, sQuery, Common.p_strConn);
         }
 
-        public void setCombo_계산서여부(conComboBox cmb)
+        public void setCombo_계산서여부(ComboBox cmb)
         {
             cmb.DisplayMember = "명칭";
             cmb.ValueMember = "코드";
@@ -1865,7 +1865,7 @@ namespace smartMain.CLS
             this.ComboBox_Read(cmb, sQuery, Common.p_strConn);
         }
 
-        public void setCombo_매입이벤트단가(conComboBox cmb)
+        public void setCombo_매입이벤트단가(ComboBox cmb)
         {
             cmb.DisplayMember = "명칭";
             cmb.ValueMember = "코드";
@@ -1916,7 +1916,7 @@ namespace smartMain.CLS
             return dataTable;
         }
 
-        public void ComboBox_Read(conComboBox sCombo, string sQuery, string sDBConStr)
+        public void ComboBox_Read(ComboBox sCombo, string sQuery, string sDBConStr)
         {
             if (sQuery.Trim().Length > 10)
                 this.strQuery = sQuery.Trim();
@@ -1929,7 +1929,7 @@ namespace smartMain.CLS
         }
 
         public void ComboBox_Read(
-          conComboBox sCombo,
+          ComboBox sCombo,
           string sQuery,
           string sBlankName,
           string sBlankName2,
@@ -1963,7 +1963,7 @@ namespace smartMain.CLS
             sCombo.DataSource = (object)this.adoTable;
         }
 
-        public void ComboBox_Read_ALL(conComboBox sCombo, string sQuery, string sDBConStr)
+        public void ComboBox_Read_ALL(ComboBox sCombo, string sQuery, string sDBConStr)
         {
             if (sQuery.Trim().Length > 10)
                 this.strQuery = sQuery.Trim();
