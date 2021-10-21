@@ -12,10 +12,37 @@ namespace prac
 {
     public partial class Form장비등록 : Form
     {
-        public Form장비등록()
+        public Form장비등록() => this.InitializeComponent();
+
+
+        
+
+        private void bindData(string condition)
         {
-            InitializeComponent();
+            this.GridView.RowCount = 0;
+            this.GridView.DataSource = (object)null;
+            try
+            {
+                DataTable dataTable = new wnDm().fn_장비_List(condition, Common.p_strConn);
+                if (dataTable == null || dataTable.Rows.Count <= 0)
+                    return;
+                this.GridView.RowCount = dataTable.Rows.Count;
+                for (int index = 0; index < dataTable.Rows.Count; ++index)
+                {
+                    this.GridView.Rows[index].Cells[0].Value = (object)dataTable.Rows[index]["장비코드"].ToString();
+                    this.GridView.Rows[index].Cells[1].Value = (object)dataTable.Rows[index]["장비명"].ToString();
+                    this.GridView.Rows[index].Cells[2].Value = (object)dataTable.Rows[index]["규격"].ToString();
+                    this.GridView.Rows[index].Cells[3].Value = (object)dataTable.Rows[index]["비고"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                wnLog.writeLog(100, ex.Message + " - " + ex.ToString());
+            }
         }
+
+
+
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
