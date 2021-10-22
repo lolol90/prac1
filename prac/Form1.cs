@@ -215,6 +215,34 @@ namespace prac
         }
 
 
+        private bool deletePost()
+        {
+            bool flag = false;
+            try
+            {
+                wnDm wnDm = new wnDm();
+                wnAdo wnAdo = new wnAdo();
+                StringBuilder stringBuilder = new StringBuilder();
+                stringBuilder.AppendLine(" delete from T_장비정보 ");
+                stringBuilder.AppendLine(" where 사업자번호 = '" + Common.p_strCompID + "' ");
+                stringBuilder.AppendLine("     and 장비코드 = @p1 ");
+                SqlCommand sCommand = new SqlCommand(stringBuilder.ToString());
+                sCommand.Parameters.AddWithValue("@p1", (object)this.textCode.Text);
+                flag = wnAdo.SqlCommandEtc(sCommand, "Delete_장비정보_Table", Common.p_strConn) > 0;
+                if (!flag)
+                {
+                    int num = (int)MessageBox.Show("삭제 중에 오류가 발생했습니다.");
+                }
+            }
+            catch (Exception ex)
+            {
+                int num = (int)MessageBox.Show("데이터베이스에 문제가 발생했습니다.");
+                wnLog.writeLog(100, ex.Message + " - " + ex.ToString());
+            }
+            return flag;
+        }
+
+
 
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -248,7 +276,11 @@ namespace prac
 
         private void delete_btn_Click(object sender, EventArgs e)
         {
-
+            if (MessageBox.Show("자료를 삭제하시겠습니까?", "삭제여부", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel || !this.deletePost())
+                return;
+            this.init_InputBox(true);
+            this.bindData(this.makeSearchCondition());
+            
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -256,7 +288,7 @@ namespace prac
 
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Form장비등록_Load(object sender, EventArgs e)
         {
            
             this.init_InputBox(true);
