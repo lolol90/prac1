@@ -1814,8 +1814,8 @@ namespace smartMain.CLS
                     case MaskedTextBox _:
                         sCtrol.Text = "";
                         break;
-                    case Label _:
-                        sCtrol.Text = "";
+                   /* case Label _:
+                        sCtrol.Text = "";*/
                         break;
                     case RichTextBox _:
                         sCtrol.Text = "";
