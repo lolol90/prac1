@@ -5,6 +5,7 @@
 // Assembly location: E:\Work\smart 장터지기\smartMain.exe
 
 
+using smartMain.팝업;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -35,6 +36,7 @@ namespace smartMain.CLS
         private System.Data.DataTable adoTable = new System.Data.DataTable();
         private DataRow adoRow;
         private object conTextNumber;
+        private pop거래처검색 pop거래처검색 = new pop거래처검색();
 
         [DllImport("imm32.dll")]
         private static extern IntPtr ImmGetDefaultIMEWnd(IntPtr hWnd);
@@ -54,13 +56,28 @@ namespace smartMain.CLS
             return wnGConstant.SendMessage(wnGConstant.ImmGetDefaultIMEWnd(process.MainWindowHandle), 643U, new IntPtr(5), new IntPtr(0)).ToInt32() != 0 ? 1 : 0;
         }
 
-        
 
-
-
-        
-
-
+        public void call_popRef_Cust(
+         string sTxt,
+         System.Windows.Forms.TextBox txt_Code,
+         System.Windows.Forms.TextBox txt_Name,
+         string sInOut,
+         string aAllFlg,
+         string sUsedYN)
+        {
+            pop거래처검색 pop거래처검색 = new pop거래처검색();
+            pop거래처검색.sInOut = sInOut;
+            pop거래처검색.aAllFlg = aAllFlg;
+            pop거래처검색.sUsedYN = sUsedYN;
+            pop거래처검색.nowTextSelect.Text = sTxt;
+            int num = (int)pop거래처검색.ShowDialog();
+            if (pop거래처검색.sRetCode != "")
+            {
+                txt_Code.Text = pop거래처검색.sRetCode;
+                txt_Name.Text = pop거래처검색.sRetName;
+            }
+            pop거래처검색.Dispose();
+        }
 
 
 
