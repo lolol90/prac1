@@ -31,6 +31,7 @@ namespace 단가정리
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.spCont = new System.Windows.Forms.SplitContainer();
+            this.lbl규격 = new System.Windows.Forms.Label();
             this.btn상품 = new System.Windows.Forms.Button();
             this.btn거래처 = new System.Windows.Forms.Button();
             this.txt상품코드 = new System.Windows.Forms.TextBox();
@@ -52,12 +53,6 @@ namespace 단가정리
             this.txtS거래처 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.GridRecord = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panTitle = new System.Windows.Forms.Panel();
             this.butExit = new System.Windows.Forms.Button();
             this.butDelete = new System.Windows.Forms.Button();
@@ -70,7 +65,17 @@ namespace 단가정리
             this.panData3 = new System.Windows.Forms.Panel();
             this.panData4 = new System.Windows.Forms.Panel();
             this.lblMsg = new System.Windows.Forms.Label();
-            this.lbl규격 = new System.Windows.Forms.Label();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.spCont)).BeginInit();
             this.spCont.Panel1.SuspendLayout();
             this.spCont.Panel2.SuspendLayout();
@@ -117,6 +122,15 @@ namespace 단가정리
             this.spCont.SplitterDistance = 382;
             this.spCont.TabIndex = 2;
             // 
+            // lbl규격
+            // 
+            this.lbl규격.Location = new System.Drawing.Point(159, 89);
+            this.lbl규격.Name = "lbl규격";
+            this.lbl규격.Size = new System.Drawing.Size(120, 28);
+            this.lbl규격.TabIndex = 115;
+            this.lbl규격.Text = "규격";
+            this.lbl규격.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // btn상품
             // 
             this.btn상품.BackColor = System.Drawing.Color.Gainsboro;
@@ -129,6 +143,7 @@ namespace 단가정리
             this.btn상품.TabStop = false;
             this.btn상품.Text = "▼";
             this.btn상품.UseVisualStyleBackColor = false;
+            this.btn상품.Click += new System.EventHandler(this.btn상품_Click);
             // 
             // btn거래처
             // 
@@ -142,6 +157,7 @@ namespace 단가정리
             this.btn거래처.TabStop = false;
             this.btn거래처.Text = "▼";
             this.btn거래처.UseVisualStyleBackColor = false;
+            this.btn거래처.Click += new System.EventHandler(this.btn거래처_Click);
             // 
             // txt상품코드
             // 
@@ -223,6 +239,9 @@ namespace 단가정리
             this.txt상품.Name = "txt상품";
             this.txt상품.Size = new System.Drawing.Size(192, 28);
             this.txt상품.TabIndex = 4;
+            this.txt상품.TextChanged += new System.EventHandler(this.txt상품_TextChanged);
+            this.txt상품.Enter += new System.EventHandler(this.txt상품_Enter);
+            this.txt상품.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt상품_KeyDown);
             // 
             // txt명칭
             // 
@@ -231,6 +250,9 @@ namespace 단가정리
             this.txt명칭.Name = "txt명칭";
             this.txt명칭.Size = new System.Drawing.Size(192, 28);
             this.txt명칭.TabIndex = 1;
+            this.txt명칭.TextChanged += new System.EventHandler(this.txt명칭_TextChanged);
+            this.txt명칭.Enter += new System.EventHandler(this.txt명칭_Enter);
+            this.txt명칭.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt명칭_KeyDown);
             // 
             // lbl단가
             // 
@@ -316,6 +338,7 @@ namespace 단가정리
             this.btnS거래처.TabStop = false;
             this.btnS거래처.Text = "▼";
             this.btnS거래처.UseVisualStyleBackColor = false;
+            this.btnS거래처.Click += new System.EventHandler(this.btnS거래처_Click);
             // 
             // txtS거래처코드
             // 
@@ -338,6 +361,9 @@ namespace 단가정리
             this.txtS거래처.Name = "txtS거래처";
             this.txtS거래처.Size = new System.Drawing.Size(221, 28);
             this.txtS거래처.TabIndex = 101;
+            this.txtS거래처.TextChanged += new System.EventHandler(this.txtS거래처_TextChanged);
+            this.txtS거래처.Enter += new System.EventHandler(this.txtS거래처_Enter);
+            this.txtS거래처.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtS거래처_KeyDown);
             // 
             // label6
             // 
@@ -385,54 +411,6 @@ namespace 단가정리
             this.GridRecord.TabIndex = 2;
             this.GridRecord.DoubleClick += new System.EventHandler(this.GridRecord_DoubleClick);
             this.GridRecord.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GridRecord_KeyDown);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.FillWeight = 83F;
-            this.dataGridViewTextBoxColumn1.HeaderText = "코드";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 83;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.FillWeight = 207F;
-            this.Column1.HeaderText = "상품명";
-            this.Column1.MinimumWidth = 207;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.FillWeight = 155F;
-            this.Column2.HeaderText = "규격";
-            this.Column2.MinimumWidth = 155;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.FillWeight = 93F;
-            this.Column3.HeaderText = "박스단가";
-            this.Column3.MinimumWidth = 93;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.FillWeight = 92F;
-            this.Column4.HeaderText = "중간단가";
-            this.Column4.MinimumWidth = 92;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.FillWeight = 93F;
-            this.Column5.HeaderText = "낱개단가";
-            this.Column5.MinimumWidth = 93;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
             // 
             // panTitle
             // 
@@ -597,14 +575,98 @@ namespace 단가정리
             this.lblMsg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblMsg.Visible = false;
             // 
-            // lbl규격
+            // dataGridViewTextBoxColumn1
             // 
-            this.lbl규격.Location = new System.Drawing.Point(159, 89);
-            this.lbl규격.Name = "lbl규격";
-            this.lbl규격.Size = new System.Drawing.Size(120, 28);
-            this.lbl규격.TabIndex = 115;
-            this.lbl규격.Text = "규격";
-            this.lbl규격.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.dataGridViewTextBoxColumn1.FillWeight = 83F;
+            this.dataGridViewTextBoxColumn1.HeaderText = "코드";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 83;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.FillWeight = 207F;
+            this.dataGridViewTextBoxColumn2.HeaderText = "상품명";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 207;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 207;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.FillWeight = 155F;
+            this.dataGridViewTextBoxColumn3.HeaderText = "규격";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 155;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 155;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.FillWeight = 93F;
+            this.dataGridViewTextBoxColumn4.HeaderText = "박스단가";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 93;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 93;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.FillWeight = 92F;
+            this.dataGridViewTextBoxColumn5.HeaderText = "중간단가";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 92;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 92;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.FillWeight = 93F;
+            this.dataGridViewTextBoxColumn6.HeaderText = "낱개단가";
+            this.dataGridViewTextBoxColumn6.MinimumWidth = 93;
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 93;
+            // 
+            // Column1
+            // 
+            this.Column1.FillWeight = 207F;
+            this.Column1.HeaderText = "상품명";
+            this.Column1.MinimumWidth = 207;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.FillWeight = 155F;
+            this.Column2.HeaderText = "규격";
+            this.Column2.MinimumWidth = 155;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.FillWeight = 93F;
+            this.Column3.HeaderText = "박스단가";
+            this.Column3.MinimumWidth = 93;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.FillWeight = 92F;
+            this.Column4.HeaderText = "중간단가";
+            this.Column4.MinimumWidth = 92;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.FillWeight = 93F;
+            this.Column5.HeaderText = "낱개단가";
+            this.Column5.MinimumWidth = 93;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             // 
             // frm단가정리
             // 
@@ -677,6 +739,11 @@ namespace 단가정리
         private System.Windows.Forms.Button butNew;
         private System.Windows.Forms.Label lblMsg;
         private System.Windows.Forms.Label lbl규격;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
     }
 }
 

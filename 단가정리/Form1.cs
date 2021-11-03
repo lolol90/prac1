@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using smartMain;
+using smartMain.팝업;
 
 namespace 단가정리
 {
@@ -22,7 +23,9 @@ namespace 단가정리
         private wnGConstant wConst = new wnGConstant();
         private string sqlQuery = "";
         private bool bEditText = false;
-        
+        private pop거래처검색 pop거래처검색 = new pop거래처검색();
+
+
 
 
 
@@ -550,7 +553,203 @@ namespace 단가정리
             this.txtS거래처.Focus();
         }
 
+        private void get_Cust_Info(string sCode)
+        {
+            try
+            {
+                DataTable dataTable = new wnDm().fn_거래처_Detail(sCode, Common.p_strConn);
+                if (dataTable == null || dataTable.Rows.Count <= 0)
+                    return;
+                this.txt명칭.Text = dataTable.Rows[0]["거래처명"].ToString();
+            }
+            catch (Exception ex)
+            {
+                wnLog.writeLog(100, ex.Message + " - " + ex.ToString());
+            }
+        }
 
+        private void btn거래처_Click(object sender, EventArgs e)
+        {
+            this.bEditText = false;
+            if (this.txt명칭.Text == "")
+            {
+                this.txt코드.Text = "";
+                this.txt코드old.Text = "";
+            }
+            this.wConst.call_popRef_Cust("", (TextBox)this.txt코드, (TextBox)this.txt명칭, "4", Common.p_strVisitAll, "0");
+            if (this.txt코드.Text != "" && this.txt코드old.Text != this.txt코드.Text)
+            {
+                this.get_Cust_Info(this.txt코드.Text);
+                this.txt코드old.Text = this.txt코드.Text;
+            }
+            this.bEditText = true;
+            SendKeys.Send("{TAB}");
+        }
+
+        private void txt명칭_Enter(object sender, EventArgs e) => this.bEditText = true;
+
+        private void txt명칭_TextChanged(object sender, EventArgs e)
+        {
+            if (!this.bEditText)
+                return;
+            this.txt코드.Text = "";
+        }
+
+        private void txt명칭_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode != Keys.Return)
+                return;
+            e.Handled = true;
+            this.bEditText = false;
+            bool flag = true;
+            if (this.txt코드.Text != "")
+                flag = false;
+            if (flag)
+            {
+                if (this.txt명칭.Text == "")
+                {
+                    this.txt코드.Text = "";
+                    this.txt코드old.Text = "";
+                }
+                this.wConst.call_popRef_Cust(this.txt명칭.Text, (TextBox)this.txt코드, (TextBox)this.txt명칭, "4", Common.p_strVisitAll, "0");
+                if (this.txt코드old.Text != this.txt코드.Text)
+                {
+                    this.get_Cust_Info(this.txt코드.Text);
+                    this.txt코드old.Text = this.txt코드.Text;
+                }
+            }
+            if (this.txt코드.Text == "")
+                this.init_Text();
+            SendKeys.Send("{TAB}");
+            this.bEditText = true;
+        }
+
+        private void init_Text()
+        {
+            this.txt코드.Text = "";
+            this.txt명칭.Text = "";
+        }
+
+        private void btnS거래처_Click(object sender, EventArgs e)
+        {
+            this.bEditText = false;
+            this.wConst.call_popRef_Cust("", (TextBox)this.txtS거래처코드, (TextBox)this.txtS거래처, "4", Common.p_strVisitAll, "");
+            if (this.txtS거래처코드.Text != "")
+                this.get_Srch_Cust_Info(this.txtS거래처코드.Text, (TextBox)this.txtS거래처);
+            this.bEditText = true;
+            SendKeys.Send("{TAB}");
+        }
+
+        private void txtS거래처_Enter(object sender, EventArgs e) => this.bEditText = true;
+
+        private void txtS거래처_TextChanged(object sender, EventArgs e)
+        {
+            if (!this.bEditText)
+                return;
+            this.txtS거래처코드.Text = "";
+        }
+
+        private void txtS거래처_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode != Keys.Return)
+                return;
+            e.Handled = true;
+            this.bEditText = false;
+            bool flag = true;
+            if (this.txtS거래처코드.Text != "")
+                flag = false;
+            if (flag)
+            {
+                this.wConst.call_popRef_Cust(this.txtS거래처.Text, (TextBox)this.txtS거래처코드, (TextBox)this.txtS거래처, "4", Common.p_strVisitAll, "");
+                this.get_Srch_Cust_Info(this.txtS거래처코드.Text, (TextBox)this.txtS거래처);
+            }
+            if (this.txtS거래처코드.Text == "")
+                this.init_SearchText_Cust();
+            SendKeys.Send("{TAB}");
+            this.bEditText = true;
+        }
+
+        private void init_SearchText_Cust()
+        {
+            this.txtS거래처코드.Text = "";
+            this.txtS거래처.Text = "";
+        }
+
+        private void get_Srch_Cust_Info(string sID, TextBox txt_Name)
+        {
+            try
+            {
+                DataTable dataTable = new wnDm().fn_거래처_Detail(sID, Common.p_strConn);
+                if (dataTable == null || dataTable.Rows.Count <= 0)
+                    return;
+                txt_Name.Text = dataTable.Rows[0]["거래처명"].ToString();
+            }
+            catch (Exception ex)
+            {
+                wnLog.writeLog(100, ex.Message + " - " + ex.ToString());
+            }
+        }
+
+        private void btn상품_Click(object sender, EventArgs e)
+        {
+            this.bEditText = false;
+            this.wConst.call_popRef_Prod(this.txt상품.Text, (TextBox)this.txt상품코드, (TextBox)this.txt상품, "0");
+            if (this.txt상품코드.Text != "")
+                this.get_Srch_Prod_Info(this.txt상품코드.Text, (TextBox)this.txt상품, (Label)this.lbl규격);
+            this.bEditText = true;
+            SendKeys.Send("{TAB}");
+        }
+
+        private void txt상품_Enter(object sender, EventArgs e) => this.bEditText = true;
+
+        private void txt상품_TextChanged(object sender, EventArgs e)
+        {
+            if (!this.bEditText)
+                return;
+            this.txt상품코드.Text = "";
+        }
+
+        private void txt상품_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode != Keys.Return)
+                return;
+            e.Handled = true;
+            this.bEditText = false;
+            bool flag = true;
+            if (this.txt상품코드.Text != "")
+                flag = false;
+            if (flag)
+            {
+                this.wConst.call_pop_Prod(this.txt상품.Text, (TextBox)this.txt상품코드, (TextBox)this.txt상품, "0");
+                this.get_Srch_Prod_Info(this.txt상품코드.Text, (TextBox)this.txt상품, (Label)this.lbl규격);
+            }
+            if (this.txt상품코드.Text == "")
+                this.init_SearchText_Prod();
+            SendKeys.Send("{TAB}");
+            this.bEditText = true;
+        }
+
+        private void init_SearchText_Prod()
+        {
+            this.txt상품코드.Text = "";
+            this.txt상품.Text = "";
+        }
+
+        private void get_Srch_Prod_Info(string sID, TextBox txt_Name, Label txt_Spec)
+        {
+            try
+            {
+                DataTable dataTable = new wnDm().fn_상품_Detail(sID, Common.p_strConn);
+                if (dataTable == null || dataTable.Rows.Count <= 0)
+                    return;
+                txt_Name.Text = dataTable.Rows[0]["상품명"].ToString();
+                txt_Spec.Text = dataTable.Rows[0]["규격"].ToString();
+            }
+            catch (Exception ex)
+            {
+                wnLog.writeLog(100, ex.Message + " - " + ex.ToString());
+            }
+        }
 
 
     }

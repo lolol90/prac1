@@ -94,10 +94,10 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="ISpannedCell.cs" />
-    <Compile Include="pop거래처검색.cs">
+    <Compile Include="팝업\pop거래처검색.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="pop상품검색.cs">
+    <Compile Include="팝업\pop상품검색.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Program.cs" />
@@ -105,8 +105,8 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="pop거래처검색.resx" />
-    <EmbeddedResource Include="pop상품검색.resx" />
+    <EmbeddedResource Include="팝업\pop거래처검색.resx" />
+    <EmbeddedResource Include="팝업\pop상품검색.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

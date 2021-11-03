@@ -36,7 +36,7 @@ namespace smartMain.CLS
         private System.Data.DataTable adoTable = new System.Data.DataTable();
         private DataRow adoRow;
         private object conTextNumber;
-        private pop거래처검색 pop거래처검색 = new pop거래처검색();
+        /*private pop거래처검색 pop거래처검색 = new pop거래처검색();*/
 
         [DllImport("imm32.dll")]
         private static extern IntPtr ImmGetDefaultIMEWnd(IntPtr hWnd);
@@ -57,7 +57,7 @@ namespace smartMain.CLS
         }
 
 
-        public void call_popRef_Cust(
+       public void call_popRef_Cust(
          string sTxt,
          System.Windows.Forms.TextBox txt_Code,
          System.Windows.Forms.TextBox txt_Name,
@@ -80,7 +80,50 @@ namespace smartMain.CLS
         }
 
 
+        public void call_popRef_Prod(string sTxt, System.Windows.Forms.TextBox txt_Code, System.Windows.Forms.TextBox txt_Name, string sUsedYN)
+        {
+            pop상품검색 pop상품검색 = new pop상품검색();
+            pop상품검색.sUsedYN = sUsedYN;
+            int num = (int)pop상품검색.ShowDialog();
+            if (!(pop상품검색.sRetCode != ""))
+                return;
+            txt_Code.Text = pop상품검색.sRetCode;
+            txt_Name.Text = pop상품검색.sRetName;
+        }
 
+        public void call_pop_Prod(
+          DataGridView dgv,
+          int nRow,
+          string sTxt,
+          string sCust,
+          string sGubun,
+          int nColCode,
+          int nColName,
+          string sUsedYN)
+        {
+            pop상품검색 pop상품검색 = new pop상품검색();
+            pop상품검색.sUsedYN = sUsedYN;
+            pop상품검색.sCustCode = sCust;
+            pop상품검색.sCustGubun = sGubun;
+            pop상품검색.nowTextSelect.Text = sTxt;
+            int num = (int)pop상품검색.ShowDialog();
+            if (!(pop상품검색.sRetCode != ""))
+                return;
+            dgv.Rows[nRow].Cells[nColCode].Value = (object)pop상품검색.sRetCode;
+            dgv.Rows[nRow].Cells[nColName].Value = (object)pop상품검색.sRetName;
+        }
+
+        public void call_pop_Prod(string sTxt, System.Windows.Forms.TextBox txt_Code, System.Windows.Forms.TextBox txt_Name, string sUsedYN)
+        {
+            pop상품검색 pop상품검색 = new pop상품검색();
+            pop상품검색.sUsedYN = sUsedYN;
+            pop상품검색.nowTextSelect.Text = sTxt;
+            int num = (int)pop상품검색.ShowDialog();
+            if (!(pop상품검색.sRetCode != ""))
+                return;
+            txt_Code.Text = pop상품검색.sRetCode;
+            txt_Name.Text = pop상품검색.sRetName;
+        }
 
         public void init_RowText(DataGridView dgv, int nRow)
         {
