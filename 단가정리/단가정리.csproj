@@ -105,7 +105,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="팝업\pop거래처검색.resx" />
+    <EmbeddedResource Include="팝업\pop거래처검색.resx">
+      <DependentUpon>pop거래처검색.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="팝업\pop상품검색.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -43,16 +43,16 @@ namespace smartMain.팝업
         private Panel panList;
         private DataGridView GridRecord;
         private Button butSearch;
-        public TextBox nowTextSelect;
-        public ComboBox cmb거래처구분;
+        public conTextBox nowTextSelect;
+        public conComboBox cmb거래처구분;
         private Timer tmClose;
         private Label label2;
-        public TextBox txt대표자명;
+        public conTextBox txt대표자명;
         private Label label1;
         private Label label15;
-        public TextBox txt거래처담당자;
+        public conTextBox txt거래처담당자;
         private Label label3;
-        private ComboBox cmb사용여부;
+        private conComboBox cmb사용여부;
         private Label label4;
         private Label label5;
 
@@ -229,8 +229,8 @@ namespace smartMain.팝업
         {
             this.GridRecord.DataSource = (object)null;
             this.GridRecord.RowCount = 0;
-            if (this.nowTextSelect.Text.Trim() == "" && int.Parse(Common.p_PageSize) > 0)
-                return;
+            
+               
             try
             {
                 this.GridRecord.DataSource = (object)new wnDm().fn_거래처_List_팝업(condition, this.aAllFlg, Common.p_strConn);
@@ -525,11 +525,11 @@ namespace smartMain.팝업
             // 
             // txt거래처담당자
             // 
-           /* this.txt거래처담당자._AutoTab = true;
+            this.txt거래처담당자._AutoTab = true;
             this.txt거래처담당자._BorderColor = System.Drawing.Color.LightSkyBlue;
             this.txt거래처담당자._FocusedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.txt거래처담당자._WaterMarkColor = System.Drawing.Color.Gray;
-            this.txt거래처담당자._WaterMarkText = "";*/
+            this.txt거래처담당자._WaterMarkText = "";
             this.txt거래처담당자.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt거래처담당자.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.txt거래처담당자.Location = new System.Drawing.Point(694, 88);
@@ -552,7 +552,7 @@ namespace smartMain.팝업
             // 
             // txt대표자명
             // 
-            /*this.txt대표자명._AutoTab = true;
+            this.txt대표자명._AutoTab = true;
             this.txt대표자명._BorderColor = System.Drawing.Color.LightSkyBlue;
             this.txt대표자명._FocusedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.txt대표자명._WaterMarkColor = System.Drawing.Color.Gray;
@@ -563,7 +563,7 @@ namespace smartMain.팝업
             this.txt대표자명.Name = "txt대표자명";
             this.txt대표자명.Size = new System.Drawing.Size(78, 22);
             this.txt대표자명.TabIndex = 3;
-            this.txt대표자명.Visible = false;*/
+            this.txt대표자명.Visible = false;
             // 
             // label1
             // 
@@ -590,8 +590,8 @@ namespace smartMain.팝업
             // 
             // cmb사용여부
             // 
-           /* this.cmb사용여부._BorderColor = System.Drawing.Color.LightSkyBlue;
-            this.cmb사용여부._FocusedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));*/
+            this.cmb사용여부._BorderColor = System.Drawing.Color.LightSkyBlue;
+            this.cmb사용여부._FocusedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.cmb사용여부.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb사용여부.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmb사용여부.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -603,11 +603,11 @@ namespace smartMain.팝업
             // 
             // nowTextSelect
             // 
-           /* this.nowTextSelect._AutoTab = true;
+            this.nowTextSelect._AutoTab = true;
             this.nowTextSelect._BorderColor = System.Drawing.Color.LightSkyBlue;
             this.nowTextSelect._FocusedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.nowTextSelect._WaterMarkColor = System.Drawing.Color.Gray;
-            this.nowTextSelect._WaterMarkText = "";*/
+            this.nowTextSelect._WaterMarkText = "";
             this.nowTextSelect.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.nowTextSelect.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.nowTextSelect.Location = new System.Drawing.Point(330, 10);
@@ -617,9 +617,9 @@ namespace smartMain.팝업
             this.nowTextSelect.KeyDown += new System.Windows.Forms.KeyEventHandler(this.nowTextSelect_KeyDown);
             // 
             // cmb거래처구분
-            /*// 
+            // 
             this.cmb거래처구분._BorderColor = System.Drawing.Color.LightSkyBlue;
-            this.cmb거래처구분._FocusedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));*/
+            this.cmb거래처구분._FocusedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.cmb거래처구분.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb거래처구분.Enabled = false;
             this.cmb거래처구분.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -684,7 +684,7 @@ namespace smartMain.팝업
             this.butSearch.FlatAppearance.BorderSize = 0;
             this.butSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
             this.butSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            /*this.butSearch.Image = ((System.Drawing.Image)(resources.GetObject("butSearch.Image")));*/
+            this.butSearch.Image = ((System.Drawing.Image)(resources.GetObject("butSearch.Image")));
             this.butSearch.Location = new System.Drawing.Point(481, 5);
             this.butSearch.Name = "butSearch";
             this.butSearch.Size = new System.Drawing.Size(33, 33);
@@ -716,7 +716,7 @@ namespace smartMain.팝업
             this.butExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(138)))));
             this.butExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.butExit.ForeColor = System.Drawing.Color.White;
-            /*this.butExit.Image = ((System.Drawing.Image)(resources.GetObject("butExit.Image")));*/
+            this.butExit.Image = ((System.Drawing.Image)(resources.GetObject("butExit.Image")));
             this.butExit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.butExit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.butExit.Location = new System.Drawing.Point(1159, 23);
